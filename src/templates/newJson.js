@@ -1,7 +1,7 @@
-module.exports = ({author, commitHash, commitName, size}) => `[{
+module.exports = ({author, commitHash, commitMessage, size}) => `[{
   "author": "${author}",
   "commitHash": "${commitHash}",
-  "commitName": "${commitName}",
+  "commitMessage": "${commitMessage}",
   "size": "${size}"
 }]
 `

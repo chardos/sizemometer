@@ -1,1 +1,1 @@
-## File size graph
+## Sizemometer
