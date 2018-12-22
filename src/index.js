@@ -4,7 +4,6 @@ const git = require('git-rev')
 const { log } = require('./wrappers');
 
 module.exports = async () => {
-  console.log('Success! Running file-size-graph.');
   const jsonPath = `${process.cwd()}/sizes.json`;
   const fileName = `${process.cwd()}/README.md`;
 
@@ -15,14 +14,35 @@ module.exports = async () => {
   const [latestCommit, ...otherCommits] = commits;
   const [commitHash, commitMessage, timeAgo, author] = latestCommit;
 
-  // look for the JSON (sizes.json)
   const jsonExists = await fs.exists(jsonPath);
+  const existingFile = jsonExists && await fs.readFile(jsonPath);
+  const storedCommits = jsonExists && JSON.parse(existingFile.toString());
+  const lastStoredHash = jsonExists && storedCommits[0].commitHash;
+  const hashIsNew = lastStoredHash !== commitHash;
+
   console.log('jsonExists', jsonExists);
+  console.log('hashIsNew', hashIsNew);
+
+  if (jsonExists && hashIsNew) {
+
+    const newArr = [
+      {
+        author,
+        commitHash,
+        commitMessage,
+        size
+      },
+      ...storedCommits
+    ]
+    console.log('newArr', newArr);
+    fs.writeFile(jsonPath, JSON.stringify(newArr));
+  } else if (!jsonExists) {
+    fs.writeFile(jsonPath, newJsonTemplate({
+      author,
+      commitHash,
+      commitMessage,
+      size
+    }))
+  }
   
-  fs.writeFile(jsonPath, newJsonTemplate({
-    author,
-    commitHash,
-    commitMessage,
-    size
-  }))
 };
