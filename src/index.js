@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const newJsonTemplate = require('./templates/newJson');
 const git = require('git-rev')
 const { log } = require('./wrappers');
+const prettier = require('prettier');
 
 module.exports = async () => {
   const jsonPath = `${process.cwd()}/sizes.json`;
@@ -34,8 +35,8 @@ module.exports = async () => {
       },
       ...storedCommits
     ]
-    console.log('newArr', newArr);
-    fs.writeFile(jsonPath, JSON.stringify(newArr));
+    const formattedArr = JSON.stringify(newArr, null, 2);
+    fs.writeFile(jsonPath, formattedArr);
   } else if (!jsonExists) {
     fs.writeFile(jsonPath, newJsonTemplate({
       author,
