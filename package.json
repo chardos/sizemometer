@@ -1,0 +1,11 @@
+{
+  "name": "file-size-graph",
+  "version": "0.0.1",
+  "bin": {
+    "file-size-graph": "bin/main",
+    "fsg": "bin/main"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1"
+  }
+}
