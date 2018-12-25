@@ -2,10 +2,23 @@ const fs = require('fs-extra');
 const { log } = require('../wrappers');
 
 module.exports = async () => {
+  const config = require(`${process.cwd()}/sizemometer.config.js`);
+  const { files } = config;
   const jsonPath = `${process.cwd()}/sizes.json`;
-  const fileName = `${process.cwd()}/README.md`;
 
-  const stats = await fs.stat(fileName);
+  const filePaths = files.map((path) => `${process.cwd()}/${path}`)
+
+  console.log('filePaths', filePaths);
+
+  const statsPromises = filePaths.map((path) => {
+    return fs.stat(path);
+  })
+  console.log('statsPromises', statsPromises);
+
+  const stats = await Promise.all(statsPromises);
+
+  console.log('stats', stats);
+
   const { size } = stats;
 
   const commits = await log();
