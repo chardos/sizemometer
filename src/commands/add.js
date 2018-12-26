@@ -4,6 +4,7 @@ const getFileSizes = require('../pipelines/getFileSizes');
 const addGitData = require('../pipelines/addGitData');
 const getSizesJson = require('../pipelines/getSizesJson');
 const updateSizesJson = require('../pipelines/updateSizesJson');
+const rewriteSizesJson = require('../pipelines/rewriteSizesJson');
 
 module.exports = async () => {
   const config = require(`${process.cwd()}/sizemometer.config.js`);
@@ -20,7 +21,7 @@ module.exports = async () => {
     .then(addGitData)
     .then(getSizesJson)
     .then(updateSizesJson)
-    // .then(combineIntoSizesJson)
+    .then(rewriteSizesJson)
     .catch(console.log)
   
 

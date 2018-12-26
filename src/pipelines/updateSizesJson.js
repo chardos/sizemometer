@@ -1,10 +1,7 @@
 const fs = require('fs-extra');
 
-module.exports = async (obj) => {
-  const { files, sizesJson } = obj;
-  console.log('objs', obj);
-  const jsonPath = `${process.cwd()}/sizes.json`;
-
+module.exports = async (data) => {
+  const { files, sizesJson } = data;
 
   files.forEach((file) => {
     const keyExists = Boolean(sizesJson[file.shortPath]);
@@ -23,6 +20,5 @@ module.exports = async (obj) => {
     })
   })
 
-  console.log('obj', JSON.stringify(obj,null,2));
-
+  return data;
 }
