@@ -14,6 +14,6 @@ module.exports = async (obj) => {
 
   return {
     ...obj,
-    sizesJson
+    inputJson: sizesJson
   }
 }
