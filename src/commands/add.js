@@ -2,6 +2,8 @@ const fs = require('fs-extra');
 const { log } = require('../wrappers');
 const getSizes = require('../pipelines/getSizes');
 const addGitData = require('../pipelines/addGitData');
+const getSizesJson = require('../pipelines/getSizesJson');
+const updateSizesJson = require('../pipelines/updateSizesJson');
 
 module.exports = async () => {
   const config = require(`${process.cwd()}/sizemometer.config.js`);
@@ -14,10 +16,12 @@ module.exports = async () => {
   }));
 
   // get stats
-  getSizes(filePaths)
+  await getSizes(filePaths)
     .then(addGitData)
-    // .then(getSizesJson)
+    .then(getSizesJson)
+    .then(updateSizesJson)
     // .then(combineIntoSizesJson)
+    .catch(console.log)
 
   const commits = await log();
   const [latestCommit, ...otherCommits] = commits;

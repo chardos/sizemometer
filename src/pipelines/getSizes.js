@@ -9,5 +9,7 @@ module.exports = async (filePaths) => {
     }
   })
 
-  return await Promise.all(statsPromises);
+  return {
+    stats: await Promise.all(statsPromises)
+  }
 }
