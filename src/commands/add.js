@@ -23,37 +23,13 @@ module.exports = async () => {
     // .then(combineIntoSizesJson)
     .catch(console.log)
   
-  // Check if the filename exists in the json
-  // const lastStoredHash = jsonExists && storedCommits[0].commitHash;
-  // const hashIsNew = lastStoredHash !== commitHash;
 
   // if (hashIsNew) {
-
   //   console.log('Added new data point to sizes.json')
   // } else {
   //   console.log('No new commits to add to sizes.json')
   // }
 
-  // if (jsonExists && hashIsNew) {
-  //   const newArr = [
-  //     {
-  //       author,
-  //       commitHash,
-  //       commitMessage,
-  //       size
-  //     },
-  //     ...storedCommits
-  //   ]
-  //   const formattedArr = JSON.stringify(newArr, null, 2);
-  //   fs.writeFile(jsonPath, formattedArr);
-  //   console.log('Added new data point to sizes.json')
-  // } else if (!jsonExists) {
-  //   const newArr = [{
-  //     author,
-  //     commitHash,
-  //     commitMessage,
-  //     size
-  //   }]
   //   const formattedArr = JSON.stringify(newArr, null, 2);
   //   fs.writeFile(jsonPath, formattedArr)
   //   

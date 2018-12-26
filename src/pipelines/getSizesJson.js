@@ -11,8 +11,6 @@ module.exports = async (obj) => {
 
   let sizesJson = await fs.readFile(jsonPath);
   sizesJson = JSON.parse(sizesJson.toString());
-  console.log('sizesJson', sizesJson);
-  console.log('objzz', obj);
 
   return {
     ...obj,

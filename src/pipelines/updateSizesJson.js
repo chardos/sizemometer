@@ -1,15 +1,12 @@
 const fs = require('fs-extra');
 
 module.exports = async (obj) => {
-  const { stats } = obj;
+  const { files, sizesJson } = obj;
   console.log('objs', obj);
   const jsonPath = `${process.cwd()}/sizes.json`;
 
-  let sizesJson = await fs.readFile(jsonPath);
-  sizesJson = JSON.parse(sizesJson.toString());
-  console.log('sizesJson', sizesJson);
 
-  stats.forEach((file) => {
+  files.forEach((file) => {
     const keyExists = Boolean(sizesJson[file.short]);
 
     if (!keyExists) {
@@ -26,5 +23,6 @@ module.exports = async (obj) => {
     })
   })
 
-  console.log('sizesJson', sizesJson);
+  console.log('obj', JSON.stringify(obj,null,2));
+
 }
