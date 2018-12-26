@@ -7,15 +7,15 @@ module.exports = async (obj) => {
 
 
   files.forEach((file) => {
-    const keyExists = Boolean(sizesJson[file.short]);
+    const keyExists = Boolean(sizesJson[file.shortPath]);
 
     if (!keyExists) {
-      sizesJson[file.short] = [];
+      sizesJson[file.shortPath] = [];
     }
 
     const { commitHash, commitMessage, author, size } = file;
 
-    sizesJson[file.short].push({
+    sizesJson[file.shortPath].push({
       author,
       commitHash,
       commitMessage,

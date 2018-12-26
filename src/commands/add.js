@@ -11,8 +11,8 @@ module.exports = async () => {
   const jsonPath = `${process.cwd()}/sizes.json`;
 
   const filePaths = files.map((path) => ({
-    short: path,
-    full: `${process.cwd()}/${path}`
+    shortPath: path,
+    fullPath: `${process.cwd()}/${path}`
   }));
 
   // get stats
