@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 const { log } = require('../wrappers');
+const getSizes = require('../pipelines/get-sizes');
 
 module.exports = async () => {
   const config = require(`${process.cwd()}/sizemometer.config.js`);
@@ -9,15 +10,13 @@ module.exports = async () => {
   const filePaths = files.map((path) => ({
     short: path,
     full: `${process.cwd()}/${path}`
-  }))
+  }));
 
-  const statsPromises = filePaths.map((path) => {
-    return fs.stat(path.full);
-  })
+  // get stats
+  const stats = await getSizes(filePaths);
 
-  const stats = await Promise.all(statsPromises);
   console.log('stats', stats);
-
+  
   const { size } = stats;
 
   const commits = await log();
