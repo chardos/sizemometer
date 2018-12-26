@@ -6,10 +6,13 @@ module.exports = async () => {
   const { files } = config;
   const jsonPath = `${process.cwd()}/sizes.json`;
 
-  const filePaths = files.map((path) => `${process.cwd()}/${path}`)
+  const filePaths = files.map((path) => ({
+    short: path,
+    full: `${process.cwd()}/${path}`
+  }))
 
   const statsPromises = filePaths.map((path) => {
-    return fs.stat(path);
+    return fs.stat(path.full);
   })
 
   const stats = await Promise.all(statsPromises);
@@ -23,20 +26,42 @@ module.exports = async () => {
 
   const jsonExists = await fs.exists(jsonPath);
   
-  // use sizes.json. Easier to check and append.
-  // Check if the filename exists in the json
   // For each, check if the latest commit is same as current
   // add to filenames array
 
   if (!jsonExists) {
     console.log('sizes.json not found. Writing new file.')
-    await fs.writeFile(jsonPath, {});
+    await fs.writeFile(jsonPath, '{}');
   }
 
-  const existingFile = await fs.readFile(jsonPath);
-  const storedCommits = jsonExists && JSON.parse(existingFile.toString());
-  const lastStoredHash = jsonExists && storedCommits[0].commitHash;
-  const hashIsNew = lastStoredHash !== commitHash;
+  let sizesJson = await fs.readFile(jsonPath);
+  sizesJson = JSON.parse(sizesJson.toString());
+
+  filePaths.forEach((path) => {
+    const keyExists = Boolean(sizesJson[path.short]);
+
+    if (!keyExists) {
+      sizesJson[path.short] = [];
+    }
+
+    sizesJson[path.short].push({
+      author,
+      commitHash,
+      commitMessage,
+      size
+    })
+
+    // console.log('path.short', path.short);
+  })
+
+  console.log('sizesJson', sizesJson);
+
+  
+  // Check if the filename exists in the json
+
+  console.log('storedCommits', storedCommits);
+  // const lastStoredHash = jsonExists && storedCommits[0].commitHash;
+  // const hashIsNew = lastStoredHash !== commitHash;
 
   if (hashIsNew) {
 
