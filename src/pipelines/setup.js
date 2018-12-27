@@ -10,7 +10,7 @@ module.exports = () => {
 
   const filePaths = files.map((path) => ({
     shortPath: path,
-    fullPath: `${process.cwd()}/${path}`
+    fullPath: `${basePath}/${path}`
   }));
 
   return Promise.resolve({

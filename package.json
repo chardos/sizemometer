@@ -1,6 +1,6 @@
 {
   "name": "sizemometer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bin": {
     "sizemometer": "bin/main"
   },
@@ -8,7 +8,9 @@
     "test": "ENV=test jest -i --watch"
   },
   "jest": {
-    "setupFiles": ["./jestSetup.js"],
+    "setupFiles": [
+      "./jestSetup.js"
+    ],
     "watchPathIgnorePatterns": [
       "./tmp"
     ]
@@ -19,6 +21,7 @@
     "git-rev": "0.2.1",
     "jest": "23.6.0",
     "lodash.clonedeep": "4.5.0",
+    "make-dir": "^1.3.0",
     "node-cmd": "3.0.0"
   }
 }

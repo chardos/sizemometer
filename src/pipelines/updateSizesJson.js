@@ -1,4 +1,3 @@
-const fs = require('fs-extra');
 const cloneDeep = require('lodash.clonedeep');
 
 module.exports = async (data) => {

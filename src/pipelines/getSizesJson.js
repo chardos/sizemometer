@@ -1,7 +1,9 @@
 const fs = require('fs-extra');
 
-module.exports = async (obj) => {
-  const jsonPath = `${process.cwd()}/sizes.json`;
+module.exports = async (data) => {
+  console.log('GETTIN SIZES JSON');
+  const { paths: {basePath} } = data;
+  const jsonPath = `${basePath}/sizes.json`;
   const jsonExists = await fs.exists(jsonPath);
 
   if (!jsonExists) {
@@ -13,7 +15,7 @@ module.exports = async (obj) => {
   sizesJson = JSON.parse(sizesJson.toString());
 
   return {
-    ...obj,
+    ...data,
     inputJson: sizesJson
   }
 }

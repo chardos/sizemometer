@@ -7,18 +7,18 @@ const rewriteSizesJson = require('../pipelines/rewriteSizesJson');
 const setup = require('../pipelines/setup');
 
 module.exports = async () => {
-  const bro = setup();
-  console.log('bro', bro);
-
-  function log(x){console.log(x); return x}
+  function log(x){console.log('LOG:', x); return x}
 
   // // get stats
   await setup()
     .then(addFileSizes)
-    .then(addGitData)
+    // .then(addGitData)
+    // .then(log)
     .then(getSizesJson)
     .then(updateSizesJson)
-    .then(log)
     .then(rewriteSizesJson)
-    .catch(console.log)
+    .catch((err) => {
+      console.log(err)
+      console.log('STACK', err.stack)
+    })
 };
