@@ -9,19 +9,12 @@ const setup = require('../pipelines/setup');
 module.exports = async () => {
   const bro = setup();
   console.log('bro', bro);
-  
-  const config = require(`${process.cwd()}/sizemometer.config.js`);
-  const { files } = config;
-
-  const filePaths = files.map((path) => ({
-    shortPath: path,
-    fullPath: `${process.cwd()}/${path}`
-  }));
 
   function log(x){console.log(x); return x}
 
   // // get stats
-  await getFileSizes(filePaths)
+  await setup()
+    .then(getFileSizes)
     .then(addGitData)
     .then(getSizesJson)
     .then(updateSizesJson)

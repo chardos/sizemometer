@@ -13,11 +13,11 @@ module.exports = () => {
     fullPath: `${process.cwd()}/${path}`
   }));
 
-  return {
+  return Promise.resolve({
     paths: {
       basePath,
       sizesJsonPath,
     },
     files: filePaths
-  }
+  })
 }
