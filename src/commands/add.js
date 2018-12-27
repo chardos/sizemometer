@@ -4,11 +4,14 @@ const addGitData = require('../pipelines/addGitData');
 const getSizesJson = require('../pipelines/getSizesJson');
 const updateSizesJson = require('../pipelines/updateSizesJson');
 const rewriteSizesJson = require('../pipelines/rewriteSizesJson');
+const setup = require('../pipelines/setup');
 
 module.exports = async () => {
+  const bro = setup();
+  console.log('bro', bro);
+  
   const config = require(`${process.cwd()}/sizemometer.config.js`);
   const { files } = config;
-  const jsonPath = `${process.cwd()}/sizes.json`;
 
   const filePaths = files.map((path) => ({
     shortPath: path,
@@ -17,12 +20,12 @@ module.exports = async () => {
 
   function log(x){console.log(x); return x}
 
-  // get stats
+  // // get stats
   await getFileSizes(filePaths)
     .then(addGitData)
-    // .then(log)
     .then(getSizesJson)
     .then(updateSizesJson)
+    .then(log)
     .then(rewriteSizesJson)
     .catch(console.log)
 };
