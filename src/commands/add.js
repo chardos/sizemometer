@@ -1,5 +1,5 @@
 const fs = require('fs-extra');
-const getFileSizes = require('../pipelines/getFileSizes');
+const addFileSizes = require('../pipelines/addFileSizes');
 const addGitData = require('../pipelines/addGitData');
 const getSizesJson = require('../pipelines/getSizesJson');
 const updateSizesJson = require('../pipelines/updateSizesJson');
@@ -14,7 +14,7 @@ module.exports = async () => {
 
   // // get stats
   await setup()
-    .then(getFileSizes)
+    .then(addFileSizes)
     .then(addGitData)
     .then(getSizesJson)
     .then(updateSizesJson)
