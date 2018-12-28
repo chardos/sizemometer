@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Command: Add when there is no existing sizes.json it should create a sizes.json with the first entry 1`] = `
+"{
+  \\"dist/test.txt\\": [
+    {
+      \\"author\\": \\"Richard Tan\\",
+      \\"commitHash\\": \\"8248ff08472cd086cffe1439e52eade8e28b58dd\\",
+      \\"commitMessage\\": \\"Use \\\\\\"get-git-data\\\\\\" instead of \\\\\\"git-rev\\\\\\"\\",
+      \\"size\\": 80
+    }
+  ]
+}"
+`;
