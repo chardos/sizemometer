@@ -1,13 +1,14 @@
 const fs = require('fs-extra');
+const { HISTORY_PATH, CONFIG_PATH } = require('../constants');
 
 module.exports = async (data) => {
   console.log('GETTIN SIZES JSON');
   const { paths: {basePath} } = data;
-  const jsonPath = `${basePath}/sizes.json`;
+  const jsonPath = `${basePath}/${HISTORY_PATH}`;
   const jsonExists = await fs.exists(jsonPath);
 
   if (!jsonExists) {
-    console.log('sizes.json not found. Writing new file.')
+    console.log(`${HISTORY_PATH} not found. Writing new file.`)
     await fs.writeFile(jsonPath, '{}');
   }
 

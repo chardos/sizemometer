@@ -5,14 +5,9 @@ const nodeCmd = require('node-cmd');
 const { largeText, smallText } = require('./dummys/textFiles');
 const { SIZES_JSON_PATH } = require('./constants');
 
-// Test:
-// no sizes.json
-// with sizes.json
-// multiple files
-
 describe('Command: Add', () => {
-  describe('when there is no existing sizes.json', () => {
-    it('it should create a sizes.json with the first entry', async () => {
+  describe('when there is no existing history.json', () => {
+    it('it should create a history.json with the first entry', async () => {
       await addConfigFile({files: ['dist/test.txt']});
       await writeFile({
         path: 'dist/test.txt',
@@ -33,7 +28,17 @@ describe('Command: Add', () => {
     })
   })
 
-  describe('when there is a pre-existing sizes.json', () => {
+  describe('when there is a pre-existing history.json', () => {
+    describe('and there is no new commits', () => {
+    
+    })  
+
+    describe('and there is a new commit', () => {
+    
+    })  
+  })
+
+  describe('test multiple files', () => {
     
   })
 })
