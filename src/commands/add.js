@@ -12,7 +12,7 @@ module.exports = async () => {
   // // get stats
   await setup()
     .then(addFileSizes)
-    // .then(addGitData)
+    .then(addGitData)
     // .then(log)
     .then(getSizesJson)
     .then(updateSizesJson)

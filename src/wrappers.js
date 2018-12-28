@@ -1,4 +1,4 @@
-const git = require('git-rev')
+const git = require('get-git-data');
 
 exports.log = () => new Promise((resolve) => {
   git.log(function (array) {
