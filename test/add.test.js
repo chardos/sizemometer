@@ -6,6 +6,11 @@ const { largeText, smallText } = require('./dummys/textFiles');
 const { SIZES_JSON_PATH } = require('./constants');
 
 describe('Command: Add', () => {
+  // beforeEach(async () => {
+  //   process.argv.splice(2);
+  //   process.argv[2] = 'add'
+  // });
+
   describe('when there is no existing history.json', () => {
     it('it should create a history.json with the first entry', async () => {
       await addConfigFile({files: ['dist/test.txt']});

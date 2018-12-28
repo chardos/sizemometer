@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Command: Add when there is no existing history.json it should create a history.json with the first entry 1`] = `
+"{
+  \\"dist/test.txt\\": [
+    {
+      \\"author\\": \\"Richard Tan\\",
+      \\"commitHash\\": \\"4999a423230ed65ed7eaf4218784606c28931e80\\",
+      \\"commitMessage\\": \\"temp\\",
+      \\"size\\": 80
+    }
+  ]
+}"
+`;
