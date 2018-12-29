@@ -1,6 +1,7 @@
 const { log } = require('../wrappers');
 
 module.exports = async (data) => {
+  console.log('MOCKER ORIG')
   const { files } = data;
   const commits = await log();
   const latestCommit = commits[0];
