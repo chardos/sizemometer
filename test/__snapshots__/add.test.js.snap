@@ -5,8 +5,8 @@ exports[`Command: Add when there is no existing history.json it should create a 
   \\"dist/test.txt\\": [
     {
       \\"author\\": \\"Richard Tan\\",
-      \\"commitHash\\": \\"4999a423230ed65ed7eaf4218784606c28931e80\\",
-      \\"commitMessage\\": \\"temp\\",
+      \\"commitHash\\": \\"7c89a73bce5161c84b1a34130f4f902cca2d5f83\\",
+      \\"commitMessage\\": \\"Second commit\\",
       \\"size\\": 80
     }
   ]

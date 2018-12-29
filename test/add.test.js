@@ -5,6 +5,7 @@ const rimraf = require('rimraf');
 const { largeText, smallText } = require('./dummys/textFiles');
 const { SIZES_JSON_PATH } = require('./constants');
 const add = require('../src/commands/add');
+const mockAddGitData = require('./mocks/addGitData');
 
 describe('Command: Add', () => {
   beforeEach(async () => {
@@ -14,10 +15,8 @@ describe('Command: Add', () => {
   });
 
   afterEach(async () => {
-    rimraf.sync(`${process.cwd()}/tmp`);
+    await rimraf.sync(`${process.cwd()}/tmp`);
   });
-
-
 
   describe('when there is no existing history.json', () => {
     it('it should create a history.json with the first entry', async () => {
@@ -27,7 +26,7 @@ describe('Command: Add', () => {
         body: smallText
       });
 
-      await add()
+      await add(mockAddGitData())
 
       const jsonExists = await fs.exists(SIZES_JSON_PATH);
       expect(jsonExists).toEqual(true);
@@ -41,7 +40,21 @@ describe('Command: Add', () => {
 
   describe('when there is a pre-existing history.json', () => {
     describe('and there is no new commits', () => {
-    
+      it('should not modify history.json', async () => {
+        await addConfigFile({files: ['dist/test.txt']});
+        await writeFile({
+          path: 'dist/test.txt',
+          body: smallText
+        });
+
+        await add(mockAddGitData())
+        const firstBuffer = await fs.readFile(SIZES_JSON_PATH);
+
+        await add(mockAddGitData())
+        const secondBuffer = await fs.readFile(SIZES_JSON_PATH);
+
+        expect(firstBuffer.toString()).toEqual(secondBuffer.toString());
+      })
     })  
 
     describe('and there is a new commit', () => {
@@ -49,7 +62,7 @@ describe('Command: Add', () => {
     })  
   })
 
-  describe('test multiple files', () => {
+  // describe('test multiple files', () => {
     
-  })
+  // })
 })
