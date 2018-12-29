@@ -1,7 +1,6 @@
 const fs = require('fs-extra');
 
 module.exports = async (data) => {
-  console.log('ADD FILE SIZES');
   const { files } = data;
   const filePromises = files.map(async (file) => {
 
