@@ -2,6 +2,7 @@ const fs = require('fs-extra');
 const { HISTORY_PATH, CONFIG_PATH } = require('../constants');
 
 module.exports = async (data) => {
+  console.log('data', data);
   const { paths: {basePath} } = data;
   const jsonPath = `${basePath}/${HISTORY_PATH}`;
   const jsonExists = await fs.exists(jsonPath);

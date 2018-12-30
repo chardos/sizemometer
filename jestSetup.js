@@ -1,8 +1,9 @@
 const rimraf = require('rimraf');
 const fs = require('fs-extra');
-const { TEST_DIRECTORY } = require('./test/constants');
+
+const tmpDirectory = `${process.cwd()}/tmp`;
 
 // Not using fs synchronous methods in this setup file breaks tests. 
 // Keep using these for now.
-rimraf.sync(`${process.cwd()}/tmp`);
-fs.mkdirSync(TEST_DIRECTORY);
+rimraf.sync(tmpDirectory);
+fs.mkdirSync(tmpDirectory);

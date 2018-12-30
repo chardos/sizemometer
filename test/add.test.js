@@ -1,8 +1,6 @@
 const fs = require('fs-extra');
 const { addConfigFile, writeFile } = require('./helpers');
-const { cmd } = require('./wrappers');
 const { largeText, smallText } = require('./dummys/textFiles');
-const { SIZES_JSON_PATH } = require('./constants');
 const add = require('../src/commands/add');
 const mockAddGitData = require('./mocks/addGitData');
 const getPaths = require('../src/utils/getPaths');
