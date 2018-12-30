@@ -1,5 +1,5 @@
 const fs = require('fs-extra');
-const addFileSizes = require('../pipelines/addFileSizes');
+const addFileSizes = require('../pipelines/addFileSizes.ts');
 const addGitData = require('../pipelines/addGitData');
 const getHistoryJson = require('../pipelines/getHistoryJson');
 const updateHistoryJson = require('../pipelines/updateHistoryJson');
