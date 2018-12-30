@@ -1,9 +1,9 @@
 const fs = require('fs-extra');
 const addFileSizes = require('../pipelines/addFileSizes');
 const addGitData = require('../pipelines/addGitData');
-const getSizesJson = require('../pipelines/getSizesJson');
-const updateSizesJson = require('../pipelines/updateSizesJson');
-const rewriteSizesJson = require('../pipelines/rewriteSizesJson');
+const getHistoryJson = require('../pipelines/getHistoryJson');
+const updateHistoryJson = require('../pipelines/updateHistoryJson');
+const rewriteHistoryJson = require('../pipelines/rewriteHistoryJson');
 const setup = require('../pipelines/setup');
 
 module.exports = async (
@@ -17,9 +17,9 @@ module.exports = async (
     .then(addFileSizes)
     .then(injectedAddGitData)
     // .then(log)
-    .then(getSizesJson)
-    .then(updateSizesJson)
-    .then(rewriteSizesJson)
+    .then(getHistoryJson)
+    .then(updateHistoryJson)
+    .then(rewriteHistoryJson)
     .catch((err) => {
       console.log(err)
       console.log('STACK', err.stack)

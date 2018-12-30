@@ -33,9 +33,9 @@ describe('Command: Add', () => {
       );
       expect(historyExists).toEqual(true);
 
-      const sizesJsonBuffer = await fs.readFile(getPaths(scopePath).history);
+      const historyJsonBuffer = await fs.readFile(getPaths(scopePath).history);
       expect(
-        sizesJsonBuffer.toString()
+        historyJsonBuffer.toString()
       ).toMatchSnapshot()
     })
   })

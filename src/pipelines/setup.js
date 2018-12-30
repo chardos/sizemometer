@@ -17,10 +17,7 @@ module.exports = (scopePath) => {
   }));
 
   return Promise.resolve({
-    paths: {
-      basePath: paths.root,
-      sizesJsonPath: paths.history,
-    },
+    paths,
     files: filePaths
   })
 }
