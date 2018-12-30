@@ -6,6 +6,7 @@ const { largeText, smallText } = require('./dummys/textFiles');
 const { SIZES_JSON_PATH } = require('./constants');
 const add = require('../src/commands/add');
 const mockAddGitData = require('./mocks/addGitData');
+const getPaths = require('../src/utils/getPaths');
 
 describe('Command: Add', () => {
   beforeEach(async () => {
@@ -28,7 +29,7 @@ describe('Command: Add', () => {
         body: smallText
       });
 
-      await add(mockAddGitData())
+      await add(mockAddGitData(), scopePath)
 
       const historyExists = await fs.exists(
         getPaths(scopePath).history

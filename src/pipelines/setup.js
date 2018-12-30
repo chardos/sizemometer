@@ -1,24 +1,26 @@
-const { HISTORY_PATH, CONFIG_PATH } = require('../constants');
+const getPaths = require('../utils/getPaths');
 
-module.exports = () => {
+module.exports = (scopePath) => {
+  const paths = getPaths(scopePath);
+
+  console.log('paths', paths);
   const isTestEnvironment = (process.env.ENV === 'test');
   const basePath = isTestEnvironment
     ? `${process.cwd()}/tmp`
     : `${process.cwd()}`;
 
-  const config = require(`${basePath}/${CONFIG_PATH}`);
+  const config = require(paths.config);
   const { files } = config;
-  const sizesJsonPath = `${basePath}/${HISTORY_PATH}`;
 
   const filePaths = files.map((path) => ({
     shortPath: path,
-    fullPath: `${basePath}/${path}`
+    fullPath: `${paths.root}/${path}`
   }));
 
   return Promise.resolve({
     paths: {
-      basePath,
-      sizesJsonPath,
+      basePath: paths.root,
+      sizesJsonPath: paths.history,
     },
     files: filePaths
   })

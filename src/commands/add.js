@@ -6,11 +6,14 @@ const updateSizesJson = require('../pipelines/updateSizesJson');
 const rewriteSizesJson = require('../pipelines/rewriteSizesJson');
 const setup = require('../pipelines/setup');
 
-module.exports = async (injectedAddGitData = addGitData) => {
+module.exports = async (
+  injectedAddGitData = addGitData, 
+  scopedPath
+) => {
   function log(x){console.log('LOG:', x); return x}
 
   // get stats
-  await setup()
+  await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)
     // .then(log)
