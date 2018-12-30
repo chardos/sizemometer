@@ -21,7 +21,6 @@ module.exports = async (
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
     .catch((err) => {
-      console.log(err)
-      console.log('STACK', err.stack)
+      throw new Error(err)
     })
 };

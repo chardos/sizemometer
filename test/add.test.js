@@ -8,12 +8,7 @@ const getPaths = require('../src/utils/getPaths');
 describe('Command: Add', () => {
   beforeEach(async () => {
     // Pass the "add" command as argument
-    process.argv.splice(2);
     process.argv[2] = 'add'
-  });
-
-  afterEach(async () => {
-    // await rimraf.sync(`${process.cwd()}/tmp`);
   });
 
   describe('when there is no existing history.json', () => {

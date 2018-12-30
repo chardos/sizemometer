@@ -6,11 +6,11 @@ Set up a config file at `.sizemometer/config.js` in the root of your project.
 
 ```
 module.exports = {
-  files: ['dist/bundle.js']
+  trackedFiles: ['dist/bundle.js']
 }
 ```
 
-`files` is an array of the files which will be monitored.
+`trackedFiles` is an array of the trackedFiles which will be monitored.
 
 ## .gitignore
 

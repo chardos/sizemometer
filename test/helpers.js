@@ -15,7 +15,7 @@ exports.addConfigFile = async ({
 
   const configString = `
     module.exports = {
-      files: [${filesConcatenated}]
+      trackedFiles: [${filesConcatenated}]
     }
   `
 
