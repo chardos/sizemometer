@@ -1,10 +1,9 @@
-const fs = require('fs-extra');
-const addFileSizes = require('../pipelines/addFileSizes.ts');
+const addFileSizes = require('../pipelines/addFileSizes');
 const addGitData = require('../pipelines/addGitData');
 const getHistoryJson = require('../pipelines/getHistoryJson');
 const updateHistoryJson = require('../pipelines/updateHistoryJson');
 const rewriteHistoryJson = require('../pipelines/rewriteHistoryJson');
-const setup = require('../pipelines/setup');
+const setup = require('../pipelines/setup').default;
 
 module.exports = async (
   injectedAddGitData = addGitData, 
@@ -12,7 +11,6 @@ module.exports = async (
 ) => {
   function log(x){console.log('LOG:', x); return x}
 
-  // get stats
   await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)

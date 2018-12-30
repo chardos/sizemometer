@@ -1,4 +1,11 @@
-module.exports = (scopePath) => {
+interface Paths {
+  root: string,
+  dotDirectory: string,
+  config: string,
+  history: string
+}
+
+function getPaths(scopePath: string): Paths {
   let rootPath = process.cwd();
 
   if (process.env.ENV === 'test') {
@@ -12,3 +19,5 @@ module.exports = (scopePath) => {
     history: `${rootPath}/.sizemometer/history.json`
   }
 }
+
+export default getPaths;

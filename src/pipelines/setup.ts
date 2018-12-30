@@ -1,6 +1,6 @@
-const getPaths = require('../utils/getPaths');
+import getPaths from '../utils/getPaths';
 
-module.exports = (scopePath) => {
+const setup = (scopePath) => {
   const paths = getPaths(scopePath);
   const config = require(paths.config);
   const { trackedFiles } = config;
@@ -18,3 +18,5 @@ module.exports = (scopePath) => {
     files
   })
 }
+
+export default setup;
