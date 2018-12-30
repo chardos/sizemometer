@@ -58,7 +58,47 @@ describe('Command: Add', () => {
     })  
 
     describe('and there is a new commit', () => {
-    
+      it('should add a new entry to the history.json', async() => {
+        const scopePath = 'history-new-commits';
+        const trackedFilePath = 'dist/test.txt';
+        const commitHash = '1239a73bce5161c84b1a34130f4f902cca2d5f83';
+        await addConfigFile({files: ['dist/test.txt'], scopePath});
+        await writeFile({
+          scopePath,
+          path: trackedFilePath,
+          body: smallText
+        });
+
+        await add(mockAddGitData(), scopePath)
+        const firstBuffer = await fs.readFile(getPaths(scopePath).history);
+
+        // Update the tracked file to be 800bytes in size (largeText)
+        await writeFile({
+          scopePath,
+          path: trackedFilePath,
+          body: largeText
+        });
+
+        await add(mockAddGitData([
+          [ 
+            commitHash,
+            'Third commit',
+            '10 minutes ago',
+            'Richard Tan' 
+          ]
+        ]), scopePath)
+        const secondBuffer = await fs.readFile(getPaths(scopePath).history);
+
+        const firstResult = JSON.parse(firstBuffer.toString());
+        const secondResult = JSON.parse(secondBuffer.toString());
+        console.log('secondResult', secondResult);
+
+        expect(firstResult[trackedFilePath].length).toEqual(1);
+        expect(secondResult[trackedFilePath].length).toEqual(2);
+        expect(secondResult[trackedFilePath][0].size).toEqual(80);
+        expect(secondResult[trackedFilePath][1].size).toEqual(800);
+        expect(secondResult[trackedFilePath][1].commitHash).toEqual(commitHash);
+      })
     })  
   })
 

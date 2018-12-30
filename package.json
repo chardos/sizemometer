@@ -5,6 +5,7 @@
     "sizemometer": "bin/main"
   },
   "scripts": {
+    "start": "tsc --watch",
     "build": "tsc",
     "test": "ENV=test jest -i --watch"
   },
