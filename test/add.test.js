@@ -1,7 +1,6 @@
 const fs = require('fs-extra');
 const { addConfigFile, writeFile } = require('./helpers');
 const { cmd } = require('./wrappers');
-const rimraf = require('rimraf');
 const { largeText, smallText } = require('./dummys/textFiles');
 const { SIZES_JSON_PATH } = require('./constants');
 const add = require('../src/commands/add');
@@ -43,29 +42,31 @@ describe('Command: Add', () => {
     })
   })
 
-  // describe('when there is a pre-existing history.json', () => {
-  //   describe('and there is no new commits', () => {
-  //     it('should not modify history.json', async () => {
-  //       await addConfigFile({files: ['dist/test.txt']});
-  //       await writeFile({
-  //         path: 'dist/test.txt',
-  //         body: smallText
-  //       });
+  describe('when there is a pre-existing history.json', () => {
+    describe('and there is no new commits', () => {
+      it('should not modify history.json', async () => {
+        const scopePath = 'history-no-new-commits';
+        await addConfigFile({files: ['dist/test.txt'], scopePath});
+        await writeFile({
+          scopePath,
+          path: 'dist/test.txt',
+          body: smallText
+        });
 
-  //       await add(mockAddGitData())
-  //       const firstBuffer = await fs.readFile(SIZES_JSON_PATH);
+        await add(mockAddGitData(), scopePath)
+        const firstBuffer = await fs.readFile(getPaths(scopePath).history);
 
-  //       await add(mockAddGitData())
-  //       const secondBuffer = await fs.readFile(SIZES_JSON_PATH);
+        await add(mockAddGitData(), scopePath)
+        const secondBuffer = await fs.readFile(getPaths(scopePath).history);
 
-  //       expect(firstBuffer.toString()).toEqual(secondBuffer.toString());
-  //     })
-  //   })  
+        expect(firstBuffer.toString()).toEqual(secondBuffer.toString());
+      })
+    })  
 
-  //   describe('and there is a new commit', () => {
+    describe('and there is a new commit', () => {
     
-  //   })  
-  // })
+    })  
+  })
 
   // describe('test multiple files', () => {
     

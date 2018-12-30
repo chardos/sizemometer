@@ -1,13 +1,14 @@
 const fs = require('fs-extra');
-const { TEST_DIRECTORY, getPaths } = require('./constants');
+const getPaths = require('../src/utils/getPaths');
 const makeDir = require('make-dir');
 // helpers for:
 
 // adding the config file
 exports.addConfigFile = async ({ 
   files,
-  scopePath = null
+  scopePath
 }) => {
+  const paths = getPaths(scopePath);
   const filesConcatenated = files.reduce((acc, curr) => {
     return `${acc}"${curr}",`
   }, '');
@@ -19,16 +20,18 @@ exports.addConfigFile = async ({
   `
 
   await makeDir(
-    getPaths(scopePath).dotDirectory
+    paths.dotDirectory
   );
   await fs.writeFile(
-    getPaths(scopePath).config, 
+    paths.config, 
     configString
   );
 }
 
 exports.writeFile = async ({scopePath, path, body}) => {
+  const paths = getPaths(scopePath);
+
   const dir = path.split('/').slice(0, -1).join('/');
-  await makeDir(`${TEST_DIRECTORY}/${scopePath}/${dir}`);
-  await fs.writeFile(`${TEST_DIRECTORY}/${scopePath}/${path}`, body);
+  await makeDir(`${paths.root}/${dir}`);
+  await fs.writeFile(`${paths.root}/${path}`, body);
 }

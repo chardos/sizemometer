@@ -4,7 +4,6 @@ module.exports = async (data) => {
   const { files } = data;
   const filePromises = files.map(async (file) => {
 
-    console.log('file.fullPath', file.fullPath);
     const fileStats = await fs.stat(file.fullPath);
     return {
       size: fileStats.size,

@@ -3,7 +3,6 @@ const getPaths = require('../utils/getPaths');
 module.exports = (scopePath) => {
   const paths = getPaths(scopePath);
 
-  console.log('paths', paths);
   const isTestEnvironment = (process.env.ENV === 'test');
   const basePath = isTestEnvironment
     ? `${process.cwd()}/tmp`
