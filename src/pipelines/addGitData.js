@@ -5,7 +5,7 @@ module.exports = async (data) => {
   const { files } = data;
   const commits = await log();
   const latestCommit = commits[0];
-  const [commitHash, commitMessage, timeAgo, author] = latestCommit;
+  const [commitHash, commitMessage, timestamp, author] = latestCommit;
 
   const newFiles = files.map(file => ({
     ...file,

@@ -91,7 +91,6 @@ describe('Command: Add', () => {
 
         const firstResult = JSON.parse(firstBuffer.toString());
         const secondResult = JSON.parse(secondBuffer.toString());
-        console.log('secondResult', secondResult);
 
         expect(firstResult[trackedFilePath].length).toEqual(1);
         expect(secondResult[trackedFilePath].length).toEqual(2);
