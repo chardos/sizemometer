@@ -5,7 +5,7 @@ console.log('__dirname', __dirname);
 console.log('process.cwd()',process.cwd());
 
 const entry = `${__dirname}/index.js`;
-const outputPath = `${process.cwd()}/dist`;
+const outputPath = `${process.cwd()}/.sizemometer/report`;
 
 module.exports = {
   entry,
