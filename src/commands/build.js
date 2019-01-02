@@ -9,8 +9,8 @@ module.exports = async () => {
   console.log('building');
   const compiler = webpack(config);
   await compiler.run((err, stats) => {
-    console.log('err', err);
-    // console.log('stats', stats);
+    const compileErrors = stats.compilation.errors;
+    console.log('compileErrors', compileErrors);
   });
   // console.log('run', run);
 }

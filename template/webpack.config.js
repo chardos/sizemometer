@@ -12,10 +12,27 @@ module.exports = {
   output: {
     path: outputPath,
     publicPath: "/assets/", // string
-    filename: 'bundle.js',
-    // the url to the output directory resolved relative to the HTML page
-    library: "MyLibrary", // string,
-    // the name of the exported library
-    libraryTarget: "umd", // universal mo
-  }
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        options: {
+          "presets": [
+             "@babel/react"
+           ]
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
 }

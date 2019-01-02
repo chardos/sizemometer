@@ -12,6 +12,8 @@
     "test": "ENV=test jest -i --watch"
   },
   "dependencies": {
+    "babel-loader": "^8.0.4",
+    "babel-preset-react": "^6.24.1",
     "es6-promisify": "6.0.1",
     "fs-extra": "7.0.1",
     "get-git-data": "1.0.2",
