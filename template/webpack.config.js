@@ -1,9 +1,4 @@
-console.log('Reached webpack config');
 const path = require('path');
-
-console.log('__dirname', __dirname);
-console.log('process.cwd()',process.cwd());
-
 const entry = `${__dirname}/index.js`;
 const outputPath = `${process.cwd()}/.sizemometer/report`;
 
