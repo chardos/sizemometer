@@ -13,7 +13,7 @@ const BarChart = ({ data }) => {
   return (
     <div>
 
-      <Wrapper>
+      <Wrapper width={width} height={height}>
         {bars.map(bar => {
           const percentage = bar.value / maxValue * 100;
           return <Bar percentage={percentage} />

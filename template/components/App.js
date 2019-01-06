@@ -9,7 +9,7 @@ const App = () => {
     return {
       filename: key,
       data: {
-        width: 500,
+        width: 600,
         height: 250,
         bars: historyItem.map((data) => {
           const { size, ...otherProps } = data;
