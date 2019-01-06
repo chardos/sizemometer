@@ -3,7 +3,7 @@ const addGitData = require('../pipelines/addGitData');
 const getHistoryJson = require('../pipelines/getHistoryJson');
 const updateHistoryJson = require('../pipelines/updateHistoryJson');
 const rewriteHistoryJson = require('../pipelines/rewriteHistoryJson');
-const setup = require('../pipelines/setup').default;
+const setup = require('../pipelines/setup');
 
 module.exports = async (
   injectedAddGitData = addGitData, 

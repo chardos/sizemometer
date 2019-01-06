@@ -1,4 +1,4 @@
-import * as fs from 'fs-extra';
+const fs = require('fs-extra');
 
 module.exports = async (data) => {
   const { files } = data;

@@ -1,11 +1,4 @@
-interface Paths {
-  root: string,
-  dotDirectory: string,
-  config: string,
-  history: string
-}
-
-function getPaths(scopePath: string): Paths {
+function getPaths(scopePath) {
   let rootPath = process.cwd();
 
   if (process.env.ENV === 'test') {
@@ -20,4 +13,4 @@ function getPaths(scopePath: string): Paths {
   }
 }
 
-export default getPaths;
+module.exports = getPaths;

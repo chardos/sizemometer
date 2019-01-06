@@ -1,5 +1,5 @@
 const fs = require('fs-extra');
-const getPaths = require('../src/utils/getPaths').default;
+const getPaths = require('../src/utils/getPaths');
 const makeDir = require('make-dir');
 
 // adding the config file

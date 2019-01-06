@@ -1,4 +1,4 @@
-import getPaths from '../utils/getPaths';
+const getPaths = require('../utils/getPaths');
 
 const setup = (scopePath) => {
   const paths = getPaths(scopePath);
@@ -19,4 +19,4 @@ const setup = (scopePath) => {
   })
 }
 
-export default setup;
+module.exports = setup;

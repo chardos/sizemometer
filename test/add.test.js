@@ -3,7 +3,7 @@ const { addConfigFile, writeFile } = require('./helpers');
 const { largeText, smallText } = require('./dummys/textFiles');
 const add = require('../src/commands/add');
 const mockAddGitData = require('./mocks/addGitData');
-import getPaths from '../src/utils/getPaths';
+const getPaths = require('../src/utils/getPaths');
 
 describe('Command: Add', () => {
   beforeEach(async () => {
@@ -22,7 +22,6 @@ describe('Command: Add', () => {
       });
 
       await add(mockAddGitData(), scopePath)
-
       const historyExists = await fs.exists(
         getPaths(scopePath).history
       );
