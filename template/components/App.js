@@ -2,21 +2,34 @@ const history = require('../history.json');
 import React from 'react';
 import BarChart from './BarChart';
 
-console.log('history', history);
-
 const App = () => {
   const fileHistories = Object.keys(history).map(key => {
+    const historyItem = history[key];
+
     return {
       filename: key,
-      entries: history[key]
+      data: {
+        width: 500,
+        height: 250,
+        bars: historyItem.map((data) => {
+          const { size, ...otherProps } = data;
+          return {
+            value: size,
+            tooltip: otherProps
+          }
+        })
+      }
     }
   })
 
   return (
     <div>
       {
-        fileHistories.map(fileHistoryItem => (
-          <BarChart fileHistoryItem={fileHistoryItem} />
+        fileHistories.map(({filename, data}) => (
+          <div>
+            <h2>{filename}</h2>
+            <BarChart data={data} />
+          </div>
         ))
       }
     </div>

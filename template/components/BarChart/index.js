@@ -1,23 +1,21 @@
 import React from 'react';
 import { Wrapper, Bar } from './styled';
 
-const BarChart = ({ fileHistoryItem }) => {
-  const { filename, entries } = fileHistoryItem;
+const BarChart = ({ data }) => {
+  const { width, height, bars } = data;
 
-  const maxValue = entries.reduce((acc, curr) => {
-    return (acc > curr.size) ? acc : curr.size;
+  const maxValue = bars.reduce((acc, curr) => {
+    return (acc > curr.value) ? acc : curr.value;
   }, 0);
 
-  console.log('entries', entries);
   console.log('maxValue', maxValue);
 
   return (
     <div>
-      <h2>{filename}</h2>
-      
+
       <Wrapper>
-        {entries.map(entry => {
-          const percentage = entry.size / maxValue * 100;
+        {bars.map(bar => {
+          const percentage = bar.value / maxValue * 100;
           return <Bar percentage={percentage} />
         })}  
       </Wrapper>
@@ -26,3 +24,17 @@ const BarChart = ({ fileHistoryItem }) => {
 };
 
 export default BarChart;
+
+// const interface = {
+//   width,
+//   height,
+//   bars: [{
+//     value,
+//     tooltip: [
+//       {size: 12},
+//       {author: 'Richard Tan'},
+//       {commitMessage: 'Blah'},
+//       {commitHash: 'fd2312c32'}
+//     ]
+//   }]
+// }
