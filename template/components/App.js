@@ -1,6 +1,6 @@
 const history = require('../history.json');
 import React from 'react';
-import BarChartWrapper from './BarChartWrapper';
+import BarChart from './BarChart';
 
 console.log('history', history);
 
@@ -16,7 +16,7 @@ const App = () => {
     <div>
       {
         fileHistories.map(fileHistoryItem => (
-          <BarChartWrapper fileHistoryItem={fileHistoryItem} />
+          <BarChart fileHistoryItem={fileHistoryItem} />
         ))
       }
     </div>
