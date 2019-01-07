@@ -42,5 +42,7 @@ export const Label = styled.div`
   letter-spacing: 1px;
 `
 
-
+export const Value = styled.div`
+  font-size: 14px;
+`
 

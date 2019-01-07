@@ -1,7 +1,7 @@
 const history = require('../history.json');
 import React from 'react';
 import BarChart from './BarChart';
-import { Size, Value } from './styled';
+import { Size, Data } from './styled';
 import filesize from 'filesize';
 
 const App = () => {
@@ -39,9 +39,9 @@ const App = () => {
               return (
                 <div>
                   <Size>{filesize(tooltipData[0].value)}</Size>
-                  <Value>#{tooltipData[3].value}</Value>
-                  <Value>{tooltipData[2].value}</Value>
-                  <Value>{tooltipData[1].value}</Value>
+                  <Data>#{tooltipData[3].value}</Data>
+                  <Data>{tooltipData[2].value}</Data>
+                  <Data>{tooltipData[1].value}</Data>
                 </div>
               )
             }}/>

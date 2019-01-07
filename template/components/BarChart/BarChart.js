@@ -11,10 +11,11 @@ const BarChart = ({ data, tooltipTemplate }) => {
       <Graph width={width} height={height}>
         {bars.map(bar => {
           const { tooltip: tooltipData } = bar;
+          console.log('tooltipData', tooltipData);
           const percentage = bar.value / maxValue * 100;
           return (
             <Bar percentage={percentage}>
-              <Tooltip>
+              <Tooltip data={tooltipData}>
                 {tooltipTemplate && tooltipTemplate(tooltipData)}
               </Tooltip>
             </Bar>
