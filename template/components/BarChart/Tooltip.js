@@ -1,10 +1,16 @@
 import React from 'react';
-import { TooltipWrapper } from './styled';
+import { TooltipWrapper, Label, Value } from './styled';
 
-const Tooltip = (props) => {
+const Tooltip = ({data}) => {
+  console.log('data', data);
   return (
     <TooltipWrapper>
-      Tooltips
+      {data.map(datum => (
+        <div>
+          <Label>{datum.label}</Label>
+          <Value>{datum.value}</Value>
+        </div>
+      ))}
     </TooltipWrapper>
   )
 }

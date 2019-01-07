@@ -15,7 +15,7 @@ const BarChart = ({ data }) => {
         {bars.map(bar => {
           const percentage = bar.value / maxValue * 100;
           return <Bar percentage={percentage}>
-            <Tooltip>Test</Tooltip>
+            <Tooltip data={bar.tooltip}>Test</Tooltip>
           </Bar>
         })}  
       </Graph>
@@ -31,10 +31,10 @@ export default BarChart;
 //   bars: [{
 //     value,
 //     tooltip: [
-//       {size: 12},
-//       {author: 'Richard Tan'},
-//       {commitMessage: 'Blah'},
-//       {commitHash: 'fd2312c32'}
+//       {label: 'Size', value: 12},
+//       {label: 'Author', value: 'Richard Tan'},
+//       {label: 'Commit message', value: 'Blah},
+//       {label: 'Commit hash', value: 'fd2312c32'},
 //     ]
 //   }]
 // }

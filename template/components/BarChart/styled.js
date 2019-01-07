@@ -12,11 +12,14 @@ export const TooltipWrapper = styled.div`
   display: none;
   position: absolute;
   top: 0px;
-  left: 0px;
-  width: 80px;
-  height: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
   background-color: red;
   z-index: 1;
+
+  font-family: sans-serif;
+  font-size: 12px;
 `
 
 export const Bar = styled.div`
@@ -29,4 +32,13 @@ export const Bar = styled.div`
     display: block;
   }
 `
+export const Label = styled.div`
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`
+export const Value = styled.div`
+  
+`
 
+// word-wrap: break-word;

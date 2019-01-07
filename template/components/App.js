@@ -12,10 +12,15 @@ const App = () => {
         width: 600,
         height: 250,
         bars: historyItem.map((data) => {
-          const { size, ...otherProps } = data;
+          const { size, author, commitHash, commitMessage } = data;
           return {
             value: size,
-            tooltip: otherProps
+            tooltip: [
+              {label: 'Size', value: size},
+              {label: 'Author', value: author},
+              {label: 'Commit message', value: commitMessage},
+              {label: 'Commit hash', value: commitHash},
+            ]
           }
         })
       }
