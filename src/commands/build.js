@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const config = require('../../template/webpack.config');
 const fs = require('fs-extra');
-console.log('config', config);
 
 module.exports = async () => {
   // copy history.json

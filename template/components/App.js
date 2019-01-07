@@ -9,7 +9,7 @@ const App = () => {
     return {
       filename: key,
       data: {
-        width: 600,
+        width: 'auto',
         height: 250,
         bars: historyItem.map((data) => {
           const { size, author, commitHash, commitMessage } = data;

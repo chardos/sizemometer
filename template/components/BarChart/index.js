@@ -1,13 +1,10 @@
 import React from 'react';
 import { Graph, Bar } from './styled';
 import Tooltip from './Tooltip';
+import { prepareData } from './helpers';
 
 const BarChart = ({ data }) => {
-  const { width, height, bars } = data;
-
-  const maxValue = bars.reduce((acc, curr) => {
-    return (acc > curr.value) ? acc : curr.value;
-  }, 0);
+  const { width, height, bars, maxValue } = prepareData(data);
 
   return (
     <div>

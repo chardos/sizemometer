@@ -3,6 +3,7 @@ const entry = `${__dirname}/index.js`;
 const outputPath = `${process.cwd()}/.sizemometer/report`;
 
 module.exports = {
+  mode: 'development',
   entry,
   output: {
     path: outputPath,

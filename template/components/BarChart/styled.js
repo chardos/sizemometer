@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Graph = styled.div`
   display: flex;
   background-color: #eaeaea;
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
+  width: ${props => props.width};
+  height: ${props => props.height};
   align-items: flex-end;
 `
 
@@ -38,7 +38,7 @@ export const Label = styled.div`
   letter-spacing: 1px;
 `
 export const Value = styled.div`
-  
+
 `
 
 // word-wrap: break-word;
