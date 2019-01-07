@@ -1,25 +1,21 @@
 import React from 'react';
-import { Graph, Bar, Size, Value } from './styled';
+import { Graph, Bar } from './styled';
 import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
-import filesize from 'filesize';
 
-const BarChart = ({ data }) => {
+const BarChart = ({ data, tooltipTemplate }) => {
   const { width, height, bars, maxValue } = prepareData(data);
 
   return (
     <div>
       <Graph width={width} height={height}>
         {bars.map(bar => {
-          const { tooltip } = bar;
+          const { tooltip: tooltipData } = bar;
           const percentage = bar.value / maxValue * 100;
           return (
             <Bar percentage={percentage}>
               <Tooltip>
-                <Size>{filesize(bar.value)}</Size>
-                <Value>#{tooltip[3].value}</Value>
-                <Value>{tooltip[2].value}</Value>
-                <Value>{tooltip[1].value}</Value>
+                {tooltipTemplate && tooltipTemplate(tooltipData)}
               </Tooltip>
             </Bar>
           )

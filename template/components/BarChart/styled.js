@@ -41,14 +41,6 @@ export const Label = styled.div`
   text-transform: uppercase;
   letter-spacing: 1px;
 `
-export const Value = styled.div`
-  font-size: 14px;
-`
-
-// Tool tip
-export const Size = styled.div`
-  font-size: 24px;
-`
 
 
 

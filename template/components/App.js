@@ -1,6 +1,8 @@
 const history = require('../history.json');
 import React from 'react';
 import BarChart from './BarChart';
+import { Size, Value } from './styled';
+import filesize from 'filesize';
 
 const App = () => {
   const fileHistories = Object.keys(history).map(key => {
@@ -33,7 +35,16 @@ const App = () => {
         fileHistories.map(({filename, data}) => (
           <div>
             <h2>{filename}</h2>
-            <BarChart data={data} />
+            <BarChart data={data} tooltipTemplate={(tooltipData) => {
+              return (
+                <div>
+                  <Size>{filesize(tooltipData[0].value)}</Size>
+                  <Value>#{tooltipData[3].value}</Value>
+                  <Value>{tooltipData[2].value}</Value>
+                  <Value>{tooltipData[1].value}</Value>
+                </div>
+              )
+            }}/>
           </div>
         ))
       }
