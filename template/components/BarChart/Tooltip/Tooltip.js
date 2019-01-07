@@ -1,5 +1,5 @@
 import React from 'react';
-import { TooltipWrapper, Label, Value } from './styled';
+import { TooltipWrapper, Label, Value } from '../styled';
 
 const Tooltip = ({data, children}) => {
   return (
