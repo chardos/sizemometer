@@ -4,7 +4,7 @@ import { TooltipWrapper } from './styled';
 const Tooltip = (props) => {
   return (
     <TooltipWrapper>
-
+      Tooltips
     </TooltipWrapper>
   )
 }

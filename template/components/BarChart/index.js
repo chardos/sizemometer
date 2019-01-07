@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, Bar } from './styled';
+import { Graph, Bar } from './styled';
 import Tooltip from './Tooltip';
 
 const BarChart = ({ data }) => {
@@ -11,15 +11,14 @@ const BarChart = ({ data }) => {
 
   return (
     <div>
-
-      <Wrapper width={width} height={height}>
+      <Graph width={width} height={height}>
         {bars.map(bar => {
           const percentage = bar.value / maxValue * 100;
           return <Bar percentage={percentage}>
             <Tooltip>Test</Tooltip>
           </Bar>
         })}  
-      </Wrapper>
+      </Graph>
     </div>
   )
 };
