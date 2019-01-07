@@ -9,13 +9,16 @@ export const Graph = styled.div`
 `
 
 export const TooltipWrapper = styled.div`
+  pointer-events: none;
   display: none;
   position: absolute;
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
-  background-color: red;
+  padding: 8px;
+  background-color: #676767;
+  color: #dadada;
   z-index: 1;
 
   font-family: sans-serif;
@@ -25,6 +28,7 @@ export const TooltipWrapper = styled.div`
 export const Bar = styled.div`
   position: relative;
   background-color: #b7b7b7;
+  margin-left: 30px;
   width: 30px;
   height: ${props => props.percentage}%;
 
@@ -38,7 +42,13 @@ export const Label = styled.div`
   letter-spacing: 1px;
 `
 export const Value = styled.div`
-
+  font-size: 14px;
 `
 
-// word-wrap: break-word;
+// Tool tip
+export const Size = styled.div`
+  font-size: 24px;
+`
+
+
+
