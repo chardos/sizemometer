@@ -17,7 +17,7 @@ export const TooltipWrapper = styled.div`
   transform: translateX(-50%);
   width: 150px;
   padding: 8px;
-  background-color: #676767;
+  background-color: rgba(0,0,0,0.7);
   color: #dadada;
   z-index: 1;
 
