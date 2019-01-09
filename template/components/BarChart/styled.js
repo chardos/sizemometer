@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Graph = styled.div`
   display: flex;
-  background-color: #eaeaea;
   width: ${props => props.width};
   height: ${props => props.height};
   align-items: flex-end;
@@ -27,9 +26,10 @@ export const TooltipWrapper = styled.div`
 
 export const Bar = styled.div`
   position: relative;
+  border-radius: 4px 4px 0 0;
   background-color: #b7b7b7;
-  margin-left: 30px;
-  width: 30px;
+  margin-left: 10px;
+  width: 20px;
   height: ${props => props.percentage}%;
 
   &:hover ${TooltipWrapper} {
