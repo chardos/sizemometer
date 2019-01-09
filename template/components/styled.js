@@ -1,4 +1,19 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyles = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: sans-serif;
+  }
+`
+
+
+export const Card = styled.div`
+  border-radius: 4px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+`
 
 // Tool tip
 export const Size = styled.div`
