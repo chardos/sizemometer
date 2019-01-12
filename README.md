@@ -6,7 +6,7 @@ Set up a config file at `.sizemometer/config.js` in the root of your project.
 
 ```
 module.exports = {
-  trackedFiles: ['dist/bundle.js']
+  trackedFiles: ['dist/bundle.js', 'main-*.js']
 }
 ```
 
