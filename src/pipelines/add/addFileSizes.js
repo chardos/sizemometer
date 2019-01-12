@@ -1,8 +1,5 @@
 const fs = require('fs-extra');
-const { promisify } = require("es6-promisify");
-const glob = require('glob');
-const globPromise = promisify(glob);
-const getPathFromGlob = require('../utils/getPathFromGlob');
+const getPathFromGlob = require('../../utils/getPathFromGlob');
 
 module.exports = async (data) => {
   const { files } = data;

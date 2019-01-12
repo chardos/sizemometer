@@ -1,4 +1,4 @@
-const getPaths = require('../utils/getPaths');
+const getPaths = require('../../utils/getPaths');
 
 const setup = (scopePath) => {
   const paths = getPaths(scopePath);

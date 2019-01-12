@@ -1,9 +1,9 @@
-const addFileSizes = require('../pipelines/addFileSizes');
-const addGitData = require('../pipelines/addGitData');
-const getHistoryJson = require('../pipelines/getHistoryJson');
-const updateHistoryJson = require('../pipelines/updateHistoryJson');
-const rewriteHistoryJson = require('../pipelines/rewriteHistoryJson');
-const setup = require('../pipelines/setup');
+const addFileSizes = require('../pipelines/add/addFileSizes');
+const addGitData = require('../pipelines/add/addGitData');
+const getHistoryJson = require('../pipelines/add/getHistoryJson');
+const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
+const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
+const setup = require('../pipelines/add/setup');
 
 module.exports = async (
   injectedAddGitData = addGitData, 
