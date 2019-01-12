@@ -100,6 +100,27 @@ describe('Command: Add', () => {
     })  
   })
 
+  describe('when a glob path is used', () => {
+    describe('it should find the correct file', () => {
+      it('should not modify history.json', async () => {
+        const scopePath = 'glob-path';
+        const trackedFilePath = 'dist/test-*.txt';
+        await addConfigFile({files: ['dist/test-*.txt'], scopePath});
+        await writeFile({
+          scopePath,
+          path: 'dist/test-123124123.txt',
+          body: 'This is a glob files text'
+        });
+
+        await add(mockAddGitData(), scopePath)
+        const buffer = await fs.readFile(getPaths(scopePath).history);
+
+        const historyJson = JSON.parse(buffer.toString());
+        expect(historyJson[trackedFilePath][0].size).toEqual(25);
+      })
+    })  
+  })
+
   // describe('test multiple files', () => {
     
   // })
