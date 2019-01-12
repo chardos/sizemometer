@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 
+// Copy the history file into node_modules to be compiled into the build.
 exports.copyHistoryIn = async () => {
   const historyOriginPath = `${process.cwd()}/.sizemometer/history.json`;
   const historyDestinationPath = `${__dirname}/../../../template/history.json`;
@@ -10,6 +11,8 @@ exports.copyHistoryIn = async () => {
   });
 }
 
+
+// Copy the index file over to .sizemometer/report
 exports.copyIndexOver = async () => {
   const indexOriginPath = `${__dirname}/../../../template/index.html`;
   const indexDestinationPath = `${process.cwd()}/.sizemometer/report/index.html`;

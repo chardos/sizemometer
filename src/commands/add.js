@@ -14,8 +14,8 @@ module.exports = async (
   await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)
-    // .then(log)
     .then(getHistoryJson)
+    // .then(log)
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
     .catch((err) => {

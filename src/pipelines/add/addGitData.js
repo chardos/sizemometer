@@ -10,6 +10,7 @@ module.exports = async (data) => {
     ...file,
     commitHash,
     commitMessage,
+    timestamp,
     author
   }))
 
