@@ -1,15 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
-
-export const GlobalStyles = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: sans-serif;
-    background-color: #1A262F;
-  }
-`
-
+import styled from 'styled-components';
 
 export const Card = styled.div`
   background-color: white;
@@ -33,3 +22,13 @@ export const Filename = styled.div`
   border-bottom: 1px solid #eee;
 `
 
+
+
+// Tool tip
+export const Size = styled.div`
+  font-size: 24px;
+`
+
+export const Data = styled.div`
+  font-size: 14px;
+`
