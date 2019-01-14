@@ -5,6 +5,7 @@ export const Graph = styled.div`
   width: ${props => props.width};
   height: ${props => props.height};
   align-items: flex-end;
+  justify-content: space-between;
 `
 
 export const TooltipWrapper = styled.div`
@@ -26,11 +27,15 @@ export const TooltipWrapper = styled.div`
 
 export const Bar = styled.div`
   position: relative;
-  border-radius: 4px 4px 0 0;
-  background-color: #b7b7b7;
+  border-radius: 5px;
+  background-color: #6D8294;
   margin-left: 10px;
-  width: 20px;
+  width: 10px;
   height: ${props => props.percentage}%;
+
+  &:hover {
+    background-color: #FFD067;
+  }
 
   &:hover ${TooltipWrapper} {
     display: block;

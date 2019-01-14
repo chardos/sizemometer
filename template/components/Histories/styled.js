@@ -4,7 +4,6 @@ export const HistoriesWrapper = styled.div`
   padding: 20px;
   margin: 0 auto;
   max-width: 1000px;
-  
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 20px;
@@ -28,7 +27,7 @@ export const Card = styled.div`
 `
 
 export const ChartWrapper = styled.div`
-  padding: 20px;
+  
 `
 
 // Tool tip
