@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const HeaderBar = styled.div`
   background-color: #23303A;
   padding: 30px;
+  margin-bottom: 5vw;
 `;
 
 const Title = styled.span`
