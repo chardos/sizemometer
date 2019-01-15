@@ -9,7 +9,8 @@ const HeaderBar = styled.div`
 
 const Title = styled.span`
   font-size: 18px;
-  letter-spacing: 8px;
+  font-weight: bold;
+  letter-spacing: 5px;
   text-transform: uppercase;
   color: white;
 `;

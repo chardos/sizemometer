@@ -15,6 +15,7 @@ export const CardTitle = styled.div`
   letter-spacing: 1px;
   padding: 0px 0px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 `
 
 export const Card = styled.div`
