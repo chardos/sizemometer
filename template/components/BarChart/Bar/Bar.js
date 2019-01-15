@@ -13,7 +13,7 @@ const Bar = styled.div`
 const BarWrapper = styled.div`
   position: relative;
   margin-left: 10px;
-  padding: 0 10px;
+  padding: 0 20px;
   height: ${props => props.percentage}%;
 
   &:hover ${Bar} {
@@ -21,7 +21,8 @@ const BarWrapper = styled.div`
   }
 
   &:hover ${TooltipWrapper} {
-    display: block;
+    opacity: 1;
+    transform: translate(-50%, -0);
   }
 `
 

@@ -12,10 +12,11 @@ const Histories = ({histories}) => {
           <ChartWrapper>
             <BarChart data={data} tooltipTemplate={(tooltipData) => {
               const { size, timestamp } = tooltipData;
+
               return (
                 <div>
                   <Size>{filesize(size)}</Size>
-                  <Data>{timestamp}</Data>
+                  <Data>{getReadableDate(timestamp)}</Data>
                 </div>
               )
             }}/>
@@ -27,3 +28,8 @@ const Histories = ({histories}) => {
 }
 
 export default Histories;
+
+function getReadableDate(timestamp) {
+  const date = new Date(parseInt(timestamp));
+  return `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
+}
