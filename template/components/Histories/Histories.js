@@ -11,12 +11,11 @@ const Histories = ({histories}) => {
           <CardTitle>{filename}</CardTitle>
           <ChartWrapper>
             <BarChart data={data} tooltipTemplate={(tooltipData) => {
+              const { size, timestamp } = tooltipData;
               return (
                 <div>
-                  <Size>{filesize(tooltipData[0].value)}</Size>
-                  <Data>#{tooltipData[3].value}</Data>
-                  <Data>{tooltipData[2].value}</Data>
-                  <Data>{tooltipData[1].value}</Data>
+                  <Size>{filesize(size)}</Size>
+                  <Data>{timestamp}</Data>
                 </div>
               )
             }}/>

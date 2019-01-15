@@ -4,9 +4,10 @@ import { Label, Value } from '../styled';
 
 export const TooltipWrapper = styled.div`
   pointer-events: none;
+  text-align: center;
   display: none;
   position: absolute;
-  top: 0px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;

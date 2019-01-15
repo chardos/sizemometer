@@ -5,6 +5,7 @@ import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
 
 const BarChart = ({ data, tooltipTemplate }) => {
+  console.log('data', data);
   const { width, height, bars, maxValue } = prepareData(data);
 
   return (
@@ -12,7 +13,6 @@ const BarChart = ({ data, tooltipTemplate }) => {
       <Graph width={width} height={height}>
         {bars.map(bar => {
           const { tooltip: tooltipData } = bar;
-          console.log('tooltipData', tooltipData);
           const percentage = bar.value / maxValue * 100;
           return (
             <Bar percentage={percentage}>

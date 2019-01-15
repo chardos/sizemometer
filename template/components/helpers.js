@@ -8,15 +8,10 @@ export const formatFileHistories = (history) => {
         width: 'auto',
         height: 180,
         bars: historyItem.map((data) => {
-          const { size, author, commitHash, commitMessage } = data;
+          const { size, author, commitHash, commitMessage, timestamp } = data;
           return {
             value: size,
-            tooltip: [
-              {label: 'Size', value: size},
-              {label: 'Author', value: author},
-              {label: 'Commit message', value: commitMessage},
-              {label: 'Commit hash', value: commitHash},
-            ]
+            tooltip: data
           }
         })
       }
