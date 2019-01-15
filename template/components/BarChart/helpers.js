@@ -1,4 +1,4 @@
-export const prepareData = (data) =>{
+export const prepareData = (data) => {
   const maxValue = data.bars.reduce((acc, curr) => {
     return (acc > curr.value) ? acc : curr.value;
   }, 0);

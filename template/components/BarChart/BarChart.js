@@ -1,5 +1,6 @@
 import React from 'react';
-import { Graph, Bar } from './styled';
+import { Graph } from './styled';
+import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
 
