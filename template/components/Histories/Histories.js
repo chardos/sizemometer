@@ -3,11 +3,11 @@ import { HistoriesWrapper, Card, ChartWrapper, CardTitle, Size, Data} from './st
 import BarChart from '../BarChart';
 import filesize from 'filesize';
 
-const Histories = ({histories}) => {
+const Histories = ({histories, panelWidth}) => {
   return (
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
-        <Card>
+        <Card className="card">
           <CardTitle>{filename}</CardTitle>
           <ChartWrapper>
             <BarChart data={data} tooltipTemplate={(tooltipData) => {

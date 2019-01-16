@@ -5,6 +5,7 @@ import { GlobalStyles, Filename, ChartWrapper, GraphCard, Size, Data } from './s
 import { formatFileHistories } from './helpers';
 import Header from './Header';
 import Histories from './Histories/Histories';
+import GetPanelWidth from './GetPanelWidth';
 
 const App = () => {
   const fileHistories = formatFileHistories(history);
@@ -14,7 +15,11 @@ const App = () => {
       <Normalize />
       <GlobalStyles />
       <Header />
-      <Histories histories={fileHistories} />
+      <GetPanelWidth>
+        {(panelWidth) => (
+          <Histories histories={fileHistories} panelWidth={panelWidth} />
+        )}
+      </GetPanelWidth>
     </Fragment>
   );
 };

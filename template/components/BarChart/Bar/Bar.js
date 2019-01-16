@@ -12,7 +12,6 @@ const Bar = styled.div`
 
 const BarWrapper = styled.div`
   position: relative;
-  margin-left: 10px;
   padding: 0 20px;
   height: ${props => props.percentage}%;
 
