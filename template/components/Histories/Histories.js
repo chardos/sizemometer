@@ -4,22 +4,28 @@ import BarChart from '../BarChart';
 import filesize from 'filesize';
 
 const Histories = ({histories, panelWidth}) => {
+  const PADDING = 40;
+  const numBars = Math.floor((panelWidth - PADDING) / 60);
+  console.log('numBars', numBars);
   return (
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
         <Card className="card">
           <CardTitle>{filename}</CardTitle>
           <ChartWrapper>
-            <BarChart data={data} tooltipTemplate={(tooltipData) => {
-              const { size, timestamp } = tooltipData;
+            <BarChart 
+              data={data} 
+              tooltipTemplate={(tooltipData) => {
+                const { size, timestamp } = tooltipData;
 
-              return (
-                <div>
-                  <Size>{filesize(size)}</Size>
-                  <Data>{getReadableDate(timestamp)}</Data>
-                </div>
-              )
-            }}/>
+                return (
+                  <div>
+                    <Size>{filesize(size)}</Size>
+                    <Data>{getReadableDate(timestamp)}</Data>
+                  </div>
+                )
+              }
+            }/>
           </ChartWrapper>
         </Card>
       ))}
