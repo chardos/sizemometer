@@ -1,5 +1,5 @@
 import React from 'react';
-import { HistoriesWrapper, Card, ChartWrapper, CardTitle, Size, Data} from './styled';
+import { HistoriesWrapper, Card, ChartWrapper, CardTitleBar, Size, Data} from './styled';
 import BarChart from '../BarChart';
 import filesize from 'filesize';
 
@@ -11,7 +11,10 @@ const Histories = ({histories, panelWidth}) => {
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
         <Card className="card">
-          <CardTitle>{filename}</CardTitle>
+          <CardTitleBar>
+            <div>{filename}</div>
+            <div>{filesize(data.bars[data.bars.length - 1].value)}</div>
+          </CardTitleBar>
           <ChartWrapper>
             <BarChart 
               data={data} 

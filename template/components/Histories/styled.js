@@ -9,7 +9,9 @@ export const HistoriesWrapper = styled.div`
   grid-gap: 20px;
 `;
 
-export const CardTitle = styled.div`
+export const CardTitleBar = styled.div`
+  display: flex;
+  justify-content: space-between;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
