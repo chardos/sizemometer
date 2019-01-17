@@ -8,20 +8,26 @@ export const prepareData = (data, panelWidth) => {
 
   const PADDING = 40;
   const numBars = Math.floor((panelWidth - PADDING) / 60);
-  let croppedBars = takeLast(numBars, bars);
 
-  const difference = numBars - croppedBars.length;
-
-  if (difference > 0) {
-    console.log('difference', difference);
-    const nulls = new Array(difference).fill(null);
-    croppedBars = nulls.concat(croppedBars);
-  }
-
-  // if croppedbars length is < numBars, add nulls to the front
+  const preparedBars = pipe(
+    takeLast(numBars),
+    addEmptyBars(numBars)
+  )(bars)
 
   return {
     maxValue,
-    bars: croppedBars
+    bars: preparedBars
+  }
+}
+
+function addEmptyBars(numBars) {
+  return (bars) => {
+    const difference = numBars - bars.length;
+  
+    if (difference > 0) {
+      const nulls = new Array(difference).fill(null);
+      return nulls.concat(bars);
+    }
+    return bars;
   }
 }
