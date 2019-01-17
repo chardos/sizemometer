@@ -1,16 +1,21 @@
 import React from 'react';
-import { Graph } from './styled';
+import { Graph, TransparentDot } from './styled';
 import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
 
-const BarChart = ({ data, width, height, tooltipTemplate }) => {
-  const { bars, maxValue } = prepareData(data);
+const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
+  const { bars, maxValue } = prepareData(data, panelWidth);
 
   return (
     <div>
       <Graph width={width} height={height}>
         {bars.map(bar => {
+          // nulls are the transparent dots
+          if (bar === null) {
+            return <Bar isEmpty />
+          }
+
           const { tooltip: tooltipData } = bar;
           const percentage = bar.value / maxValue * 100;
           return (
@@ -27,17 +32,3 @@ const BarChart = ({ data, width, height, tooltipTemplate }) => {
 };
 
 export default BarChart;
-
-// const interface = {
-//   width,
-//   height,
-//   bars: [{
-//     value,
-//     tooltip: [
-//       {label: 'Size', value: 12},
-//       {label: 'Author', value: 'Richard Tan'},
-//       {label: 'Commit message', value: 'Blah},
-//       {label: 'Commit hash', value: 'fd2312c32'},
-//     ]
-//   }]
-// }

@@ -13,7 +13,9 @@ const Bar = styled.div`
 const BarWrapper = styled.div`
   position: relative;
   padding: 0 20px;
-  height: ${props => props.percentage}%;
+  height: ${props => props.height};
+  opacity: ${props => props.opacity};
+  pointer-events: ${props => props.pointerEvents};
 
   &:hover ${Bar} {
     background-color: #FFD067;
@@ -25,11 +27,16 @@ const BarWrapper = styled.div`
   }
 `
 
-export default ({ percentage, children }) => {
+export default ({ children, percentage, isEmpty }) => {
+  const styleProps = {
+    height: isEmpty ? '10px' : `${percentage}%`,
+    opacity: isEmpty ? 0.5 : 1,
+    pointerEvents: isEmpty ? 'none' : 'auto',
+  }
+
   return (
-    <BarWrapper percentage={percentage}>
+    <BarWrapper {...styleProps}>
       <Bar>{children}</Bar>
     </BarWrapper>
   )
-
 }

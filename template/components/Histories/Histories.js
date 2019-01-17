@@ -4,9 +4,6 @@ import BarChart from '../BarChart';
 import filesize from 'filesize';
 
 const Histories = ({histories, panelWidth}) => {
-  const PADDING = 40;
-  const numBars = Math.floor((panelWidth - PADDING) / 60);
-  console.log('numBars', numBars);
   return (
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
@@ -20,6 +17,7 @@ const Histories = ({histories, panelWidth}) => {
               width="auto"
               height={180}
               data={data} 
+              panelWidth={panelWidth}
               tooltipTemplate={(tooltipData) => {
                 const { size, timestamp } = tooltipData;
 

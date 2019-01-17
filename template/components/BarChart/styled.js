@@ -8,6 +8,13 @@ export const Graph = styled.div`
   justify-content: space-between;
 `;
 
+export const TransparentDot = styled.div`
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 5px;
+`;
+
 export const Label = styled.div`
   font-size: 11px;
   text-transform: uppercase;

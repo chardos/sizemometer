@@ -5,7 +5,7 @@ export const HistoriesWrapper = styled.div`
   margin: 0 auto;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 20px;
 `;
 
