@@ -17,6 +17,8 @@ const Histories = ({histories, panelWidth}) => {
           </CardTitleBar>
           <ChartWrapper>
             <BarChart 
+              width="auto"
+              height={180}
               data={data} 
               tooltipTemplate={(tooltipData) => {
                 const { size, timestamp } = tooltipData;

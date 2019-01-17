@@ -4,9 +4,8 @@ import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
 
-const BarChart = ({ data, tooltipTemplate }) => {
-  console.log('data', data);
-  const { width, height, bars, maxValue } = prepareData(data);
+const BarChart = ({ data, width, height, tooltipTemplate }) => {
+  const { bars, maxValue } = prepareData(data);
 
   return (
     <div>

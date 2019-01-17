@@ -5,8 +5,6 @@ export const formatFileHistories = (history) => {
     return {
       filename: key,
       data: {
-        width: 'auto',
-        height: 180,
         bars: historyItem.map((data) => {
           const { size, author, commitHash, commitMessage, timestamp } = data;
           return {
