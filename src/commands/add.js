@@ -3,6 +3,7 @@ const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
 const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
+const rewriteJsonp = require('../pipelines/add/rewriteJsonp');
 const setup = require('../pipelines/add/setup');
 
 module.exports = async (
@@ -18,6 +19,7 @@ module.exports = async (
     // .then(log)
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
+    .then(rewriteJsonp)
     .catch((err) => {
       throw new Error(err)
     })

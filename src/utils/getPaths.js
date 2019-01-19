@@ -1,15 +1,18 @@
 function getPaths(scopePath) {
-  let rootPath = process.cwd();
+  let appRoot = process.cwd();
+  const sizemometerRoot = `${__dirname}/../..`
 
   if (process.env.ENV === 'test') {
-    rootPath = `${rootPath}/tmp/${scopePath}`;
+    appRoot = `${appRoot}/tmp/${scopePath}`;
   }
 
   return {
-    root: rootPath,
-    dotDirectory: `${rootPath}/.sizemometer`,
-    config: `${rootPath}/.sizemometer/config.js`,
-    history: `${rootPath}/.sizemometer/history.json`
+    root: appRoot,
+    sizemometerRoot,
+    dotDirectory: `${appRoot}/.sizemometer`,
+    config: `${appRoot}/.sizemometer/config.js`,
+    history: `${appRoot}/.sizemometer/history.json`,
+    historyJsonp: `${sizemometerRoot}/dist/history.jsonp`,
   }
 }
 
