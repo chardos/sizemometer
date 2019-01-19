@@ -4,7 +4,7 @@ const fs = require('fs-extra');
 const { copyHistoryIn, copyIndexOver } = require('./helpers');
 
 module.exports = async () => {
-  await copyHistoryIn();
+  // await copyHistoryIn();
   await copyIndexOver();
 
   const compiler = webpack(config);

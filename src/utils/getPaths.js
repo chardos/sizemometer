@@ -8,7 +8,7 @@ function getPaths(scopePath) {
 
   return {
     root: appRoot,
-    sizemometerRoot,
+    sizemometerRoot, // delete this dont use
     dotDirectory: `${appRoot}/.sizemometer`,
     config: `${appRoot}/.sizemometer/config.js`,
     history: `${appRoot}/.sizemometer/history.json`,
