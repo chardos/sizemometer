@@ -35,7 +35,6 @@ sizemometer add
 Then to view the report:
 
 ```
-sizemometer build
 sizemometer report
 ```
 
