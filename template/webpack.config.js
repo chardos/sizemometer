@@ -1,6 +1,7 @@
 const path = require('path');
 const entry = `${__dirname}/index.js`;
-const outputPath = `${process.cwd()}/.sizemometer/report`;
+const findUp = require('find-up');
+const outputPath = findUp.sync('dist', {cwd: __dirname});
 
 module.exports = {
   mode: 'development',
