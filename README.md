@@ -1,6 +1,18 @@
 ## Sizemometer
 
-## Config file
+## Setting up
+
+Install the package:
+
+```
+npm install -g sizemometer
+```
+
+Add this to your `.gitignore`:
+
+```
+.sizemometer/report
+```
 
 Set up a config file at `.sizemometer/config.js` in the root of your project.
 
@@ -12,10 +24,19 @@ module.exports = {
 
 `trackedFiles` is an array of the trackedFiles which will be monitored.
 
-## .gitignore
+## Using sizemometer
 
-Add this to your `.gitignore`:
+To take your first snapshot, run:
 
 ```
-.sizemometer/report
+sizemometer add
 ```
+
+Then to view the report:
+
+```
+sizemometer build
+sizemometer report
+```
+
+
