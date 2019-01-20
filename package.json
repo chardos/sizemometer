@@ -8,7 +8,8 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "node scripts/build",
-    "test": "ENV=test jest -i --watch"
+    "test": "ENV=test jest -i --watch",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@babel/core": "7.2.2",
