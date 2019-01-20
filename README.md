@@ -8,12 +8,6 @@ Install the package:
 npm install -g sizemometer
 ```
 
-Add this to your `.gitignore`:
-
-```
-.sizemometer/report
-```
-
 Set up a config file at `.sizemometer/config.js` in the root of your project.
 
 ```
