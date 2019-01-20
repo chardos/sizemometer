@@ -1,1 +1,1 @@
-const build = require('./build');
+require('./build');
