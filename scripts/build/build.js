@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const config = require('../../../template/webpack.config');
+const config = require('../../template/webpack.config');
 const fs = require('fs-extra');
 const { copyHistoryIn, copyIndexOver } = require('./helpers');
 const makeDir = require('make-dir');
