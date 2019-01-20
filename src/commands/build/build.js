@@ -5,7 +5,7 @@ const { copyHistoryIn, copyIndexOver } = require('./helpers');
 const makeDir = require('make-dir');
 const findUp = require('find-up');
 
-module.exports = async () => {
+const build = async () => {
   const sizemometerDir = await findUp('sizemometer', {cwd: __dirname});
   await makeDir(
     sizemometerDir + '/dist'
@@ -19,5 +19,6 @@ module.exports = async () => {
       console.log('compileErrors', compileErrors);
     });
   });
-
 }
+
+build();

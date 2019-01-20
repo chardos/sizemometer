@@ -12,6 +12,8 @@
     "test": "ENV=test jest -i --watch"
   },
   "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "8.0.4",
     "babel-preset-react": "6.24.1",
     "es6-promisify": "6.0.1",
