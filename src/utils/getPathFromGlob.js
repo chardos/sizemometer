@@ -10,6 +10,7 @@ module.exports = async function getPathFromGlob(file) {
 
 function throwErrorsIfNeeded(globbedPaths, shortPath) {
   if (globbedPaths.length > 1) {
+    console.log('Matching paths:', globbedPaths);
     throw new Error(`${shortPath} matches more than 1 file. Please change it to match only one.`)
   } else if (globbedPaths.length < 1) {
     throw new Error(`${shortPath} matches no files. Please change it to match one.`)
