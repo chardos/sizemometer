@@ -18,7 +18,7 @@ const BarWrapper = styled.div`
   pointer-events: ${props => props.pointerEvents};
 
   &:hover ${Bar} {
-    background-color: #FFD067;
+    background-color: ${props => props.theme.accentColor || '#FFD067'};
   }
 
   &:hover ${TooltipWrapper} {
@@ -27,11 +27,12 @@ const BarWrapper = styled.div`
   }
 `
 
-export default ({ children, percentage, isEmpty }) => {
+export default ({ children, theme, percentage, isEmpty }) => {
   const styleProps = {
     height: isEmpty ? '10px' : `${percentage}%`,
     opacity: isEmpty ? 0.5 : 1,
     pointerEvents: isEmpty ? 'none' : 'auto',
+    theme
   }
 
   return (

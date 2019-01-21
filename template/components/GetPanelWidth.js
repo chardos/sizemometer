@@ -1,5 +1,6 @@
 import React from 'react';
 import debounce from 'lodash.debounce';
+import get from 'lodash.get';
 
 class GetPanelWidth extends React.Component {
   constructor() {
@@ -20,7 +21,8 @@ class GetPanelWidth extends React.Component {
   }
 
   updateWidth() {
-    const panelWidth = document.querySelector('.card').clientWidth;
+    const card = document.querySelector('.card');
+    const panelWidth = get(card, 'clientWidth', 500);
     console.log('panelWidth', panelWidth);
     this.setState({ width: panelWidth });
   }
