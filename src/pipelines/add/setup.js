@@ -1,5 +1,6 @@
 const getPaths = require('../../utils/getPaths');
 const fs = require('fs-extra');
+require("babel-polyfill")
 
 const setup = (scopePath) => {
   const paths = getPaths(scopePath);
