@@ -17,7 +17,7 @@ const Title = styled.span`
 
 const Header = (props) => (
   <HeaderBar>
-    <Title>Sizemometer</Title>
+    <Title>{props.title || 'Sizemometer'}</Title>
   </HeaderBar>
 );
 
