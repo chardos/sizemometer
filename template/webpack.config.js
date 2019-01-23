@@ -19,7 +19,7 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           "presets": [
-             "@babel/react"
+             "react"
            ]
         },
       },
