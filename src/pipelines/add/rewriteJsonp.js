@@ -8,7 +8,7 @@ const makeDir = require('make-dir');
 
 module.exports = async (data) => {
   const { paths, outputJson } = data;
-  const outputStr = `const history = ${JSON.stringify(outputJson, null, 2)}`;
+  const outputStr = `window.snapshot = ${JSON.stringify(outputJson, null, 2)}`;
 
   await makeDir(
     paths.sizemometerRoot + '/dist'

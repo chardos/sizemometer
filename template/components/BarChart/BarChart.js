@@ -6,7 +6,7 @@ import Tooltip from './Tooltip/Tooltip';
 import { prepareData } from './helpers';
 
 const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
-  const { bars, maxValue } = prepareData(data, panelWidth);
+  const { bars, maxValue, minValue } = prepareData(data, panelWidth);
 
   return (
     <div>

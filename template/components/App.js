@@ -9,7 +9,7 @@ import GetPanelWidth from './GetPanelWidth';
 
 const App = () => {
   // history comes from global created by jsonp include
-  const fileHistories = formatFileHistories(history);
+  const fileHistories = formatFileHistories(window.snapshot);
   const title = get(window, 'config.title');
 
   return (
