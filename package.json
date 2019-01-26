@@ -8,7 +8,7 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "node scripts/build",
-    "test": "ENV=test jest -i --watch",
+    "test": "ENV=test jest",
     "prepublish": "npm run build"
   },
   "dependencies": {
