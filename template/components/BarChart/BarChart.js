@@ -17,7 +17,7 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
             return <Bar isEmpty />
           }
 
-          const theme = get(window, 'config.theme', {});
+          // const theme = get(window, 'config.theme', {});
           const { tooltip: tooltipData } = bar;
 
           const percentage = getPercentageFromRange({
@@ -27,9 +27,8 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
             offsetBottom: 10
           });
 
-          console.log('percentage', percentage);
           return (
-            <Bar percentage={percentage} theme={theme}>
+            <Bar percentage={percentage}>
               <Tooltip data={tooltipData}>
                 {tooltipTemplate && tooltipTemplate(tooltipData)}
               </Tooltip>
