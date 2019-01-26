@@ -6,4 +6,5 @@ module.exports =  async() => {
   const reportExists = await fs.exists(reportPath);
   if (!reportExists) { throw new Error('No report exists. Please run "sizemometer build"') }
   opn(reportPath)
+  process.exit(0)
 }
