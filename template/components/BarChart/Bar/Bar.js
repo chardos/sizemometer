@@ -27,12 +27,11 @@ const BarWrapper = styled.div`
   }
 `
 
-export default ({ children, theme, percentage, isEmpty }) => {
+export default ({ children, percentage, isEmpty }) => {
   const styleProps = {
     height: isEmpty ? '10px' : `${percentage}%`,
     opacity: isEmpty ? 0.5 : 1,
-    pointerEvents: isEmpty ? 'none' : 'auto',
-    theme
+    pointerEvents: isEmpty ? 'none' : 'auto'
   }
 
   return (

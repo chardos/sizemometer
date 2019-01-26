@@ -7,7 +7,7 @@ const Histories = ({histories, panelWidth}) => {
   return (
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
-        <Card className="card">
+        <Card className="card" key={filename}>
           <CardTitleBar>
             <div>{filename}</div>
             <div>{filesize(data.bars[data.bars.length - 1].value)}</div>
