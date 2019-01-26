@@ -3,7 +3,7 @@ import get from 'lodash.get';
 import { Graph } from './styled';
 import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';
-import { prepareData } from './helpers';
+import { prepareData, getPercentageFromRange } from './helpers';
 
 const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
   const { bars, maxValue, minValue } = prepareData(data, panelWidth);
@@ -19,7 +19,15 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
 
           const theme = get(window, 'config.theme', {});
           const { tooltip: tooltipData } = bar;
-          const percentage = bar.value / maxValue * 100;
+
+          const percentage = getPercentageFromRange({
+            minValue,
+            maxValue, 
+            currentValue: bar.value, 
+            offsetBottom: 10
+          });
+
+          console.log('percentage', percentage);
           return (
             <Bar percentage={percentage} theme={theme}>
               <Tooltip data={tooltipData}>

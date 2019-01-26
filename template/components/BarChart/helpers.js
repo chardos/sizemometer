@@ -8,7 +8,7 @@ export const prepareData = (data, panelWidth) => {
 
   const minValue = bars.reduce((acc, curr) => {
     return (acc < curr.value) ? acc : curr.value;
-  });
+  }, bars[0].value);
 
   const PADDING = 40;
   const numBars = Math.floor((panelWidth - PADDING) / 60);
