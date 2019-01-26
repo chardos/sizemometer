@@ -11,6 +11,10 @@
     "test": "ENV=test jest",
     "prepublish": "npm run build"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/chardos/sizemometer.git"
+  },
   "dependencies": {
     "babel-loader": "7.1.5",
     "babel-preset-react": "6.24.1",

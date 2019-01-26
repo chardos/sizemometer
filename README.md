@@ -1,5 +1,8 @@
 ## Sizemometer
 
+[![npm version](https://img.shields.io/npm/v/rsk.svg?style=flat)](https://www.npmjs.com/package/rsk)
+[![Build Status](https://travis-ci.com/chardos/sizemometer.svg?branch=master)](https://travis-ci.com/chardos/sizemometer)
+
 ## Setting up
 
 Install the package:
