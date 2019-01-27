@@ -1,8 +1,8 @@
-const { log } = require('../../wrappers');
+const git = require('get-git-data');
 
 module.exports = async (data) => {
   const { files } = data;
-  const commits = await log();
+  const commits = await git.log();
   const latestCommit = commits[0];
   const [commitHash, commitMessage, timestamp, author] = latestCommit;
 
