@@ -1,6 +1,6 @@
 ## Sizemometer
 
-[![npm version](https://img.shields.io/npm/v/rsk.svg?style=flat)](https://www.npmjs.com/package/rsk)
+[![npm version](https://img.shields.io/npm/v/sizemometer.svg?style=flat)](https://www.npmjs.com/package/rsk)
 [![Build Status](https://travis-ci.com/chardos/sizemometer.svg?branch=master)](https://travis-ci.com/chardos/sizemometer)
 
 Monitoring for your front end assets. Gives you nice graphs to track the size of your files over time.
