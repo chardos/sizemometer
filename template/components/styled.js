@@ -7,5 +7,6 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1A262F;
+    color: white;
   }
 `;
