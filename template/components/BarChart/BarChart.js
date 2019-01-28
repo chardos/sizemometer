@@ -1,5 +1,4 @@
 import React from 'react';
-import get from 'lodash.get';
 import { Graph } from './styled';
 import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';

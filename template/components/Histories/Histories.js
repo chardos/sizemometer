@@ -12,6 +12,7 @@ const Histories = ({histories, panelWidth}) => {
             <div>{filename}</div>
             <div>{filesize(data.bars[data.bars.length - 1].value)}</div>
           </CardTitleBar>
+          
           <ChartWrapper>
             <BarChart 
               width="auto"
