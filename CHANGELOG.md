@@ -1,6 +1,6 @@
-## 0.1.2
+## 0.2.0
 
-- Process exiting after `sizemometer report`.
+- Added total to header bar
 
 ## 0.1.1
 
