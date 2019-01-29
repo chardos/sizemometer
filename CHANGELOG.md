@@ -1,3 +1,7 @@
+## 0.2.1
+
+- babel-polyfill from devDependencies to dependencies
+
 ## 0.2.0
 
 - Added total to header bar
