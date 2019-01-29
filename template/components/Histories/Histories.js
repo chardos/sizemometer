@@ -18,6 +18,7 @@ const Histories = ({histories, panelWidth, openModal}) => {
           <ChartWrapper>
             <BarChart
               onBarClick={openModal}
+              filename={filename}
               width="auto"
               height={180}
               data={data} 

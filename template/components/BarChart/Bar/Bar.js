@@ -28,7 +28,7 @@ const BarWrapper = styled.div`
   }
 `
 
-export default ({ children, percentage, isEmpty, onBarClick, bar }) => {
+export default ({ children, percentage, isEmpty, onBarClick, bar, filename }) => {
   const styleProps = {
     height: isEmpty ? '10px' : `${percentage}%`,
     opacity: isEmpty ? 0.5 : 1,
@@ -36,7 +36,7 @@ export default ({ children, percentage, isEmpty, onBarClick, bar }) => {
   }
 
   return (
-    <BarWrapper {...styleProps} onClick={() => onBarClick(bar)}>
+    <BarWrapper {...styleProps} onClick={() => onBarClick(bar, filename)}>
       <Bar>{children}</Bar>
     </BarWrapper>
   )
