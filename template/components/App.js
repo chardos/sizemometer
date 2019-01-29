@@ -10,8 +10,6 @@ import GetPanelWidth from './GetPanelWidth';
 import store from '../store';
 import { Provider } from 'react-redux';
 
-console.log('store.getState()', store.getState());
-
 const App = () => {
   // history comes from global created by jsonp include
   const fileHistories = formatFileHistories(window.snapshot);

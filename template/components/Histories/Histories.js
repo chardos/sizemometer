@@ -14,7 +14,8 @@ const Histories = ({histories, panelWidth}) => {
           </CardTitleBar>
           
           <ChartWrapper>
-            <BarChart 
+            <BarChart
+              onBarClick={(bar) => {console.log(bar)}}
               width="auto"
               height={180}
               data={data} 
