@@ -1,20 +1,18 @@
-export const SELECT_FILE = "SELECT_FILE";
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";
 
 const initialState = {
   isOpen: false,
+  commitHash: null
 }
 
-export default function detailModal(state = {}, action) {
+export default function detailModal(state = initialState, action) {
   switch (action.type) {
-    case SELECT_FILE:
-      return state;
-
     case OPEN_MODAL:
       return {
         ...state,
-        isOpen: true
+        isOpen: true,
+        commitHash: action.payload
       };
 
     case CLOSE_MODAL:
@@ -31,9 +29,10 @@ export const selectFile = () => {
   };
 };
 
-export const openModal = () => {
+export const openModal = (bar) => {
   return {
     type: OPEN_MODAL,
+    payload: bar.tooltip.commitHash
   };
 };
 

@@ -1,9 +1,11 @@
 import React from 'react';
+import filesize from 'filesize';
+import { connect } from 'react-redux'; 
 import { HistoriesWrapper, Card, ChartWrapper, CardTitleBar, Size, Data} from './styled';
 import BarChart from '../BarChart';
-import filesize from 'filesize';
+import { openModal } from '../../ducks/detailModal';
 
-const Histories = ({histories, panelWidth}) => {
+const Histories = ({histories, panelWidth, openModal}) => {
   return (
     <HistoriesWrapper>
       {histories.map(({filename, data}) => (
@@ -15,7 +17,7 @@ const Histories = ({histories, panelWidth}) => {
           
           <ChartWrapper>
             <BarChart
-              onBarClick={(bar) => {console.log(bar)}}
+              onBarClick={openModal}
               width="auto"
               height={180}
               data={data} 
@@ -38,7 +40,9 @@ const Histories = ({histories, panelWidth}) => {
   )
 }
 
-export default Histories;
+export default connect(null, {
+  openModal
+})(Histories);
 
 function getReadableDate(timestamp) {
   const date = new Date(parseInt(timestamp));
