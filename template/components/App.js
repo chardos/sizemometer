@@ -8,6 +8,7 @@ import Header from './Header';
 import Histories from './Histories/Histories';
 import GetPanelWidth from './GetPanelWidth';
 import store from '../store';
+import { Provider } from 'react-redux';
 
 console.log('store.getState()', store.getState());
 
@@ -20,16 +21,18 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Fragment>
-        <Normalize />
-        <GlobalStyles />
-        <Header title={title} grandTotal={grandTotal} />
-        <GetPanelWidth>
-          {(panelWidth) => (
-            <Histories histories={fileHistories} panelWidth={panelWidth} />
-          )}
-        </GetPanelWidth>
-      </Fragment>
+      <Provider store={store}>
+        <Fragment>
+          <Normalize />
+          <GlobalStyles />
+          <Header title={title} grandTotal={grandTotal} />
+          <GetPanelWidth>
+            {(panelWidth) => (
+              <Histories histories={fileHistories} panelWidth={panelWidth} />
+            )}
+          </GetPanelWidth>
+        </Fragment>
+      </Provider>
     </ThemeProvider>
   );
 };
