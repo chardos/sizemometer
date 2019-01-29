@@ -11,6 +11,7 @@ const Bar = styled.div`
 `
 
 const BarWrapper = styled.div`
+  cursor: pointer;
   position: relative;
   padding: 0 20px;
   height: ${props => props.height};

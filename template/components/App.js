@@ -7,6 +7,9 @@ import { formatFileHistories, getGrandTotal } from './helpers';
 import Header from './Header';
 import Histories from './Histories/Histories';
 import GetPanelWidth from './GetPanelWidth';
+import store from '../store';
+
+console.log('store.getState()', store.getState());
 
 const App = () => {
   // history comes from global created by jsonp include
