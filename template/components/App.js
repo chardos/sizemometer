@@ -9,6 +9,7 @@ import Histories from './Histories/Histories';
 import GetPanelWidth from './GetPanelWidth';
 import store from '../store';
 import { Provider } from 'react-redux';
+import DetailModal from './DetailModal';
 
 const App = () => {
   // history comes from global created by jsonp include
@@ -29,6 +30,7 @@ const App = () => {
               <Histories histories={fileHistories} panelWidth={panelWidth} />
             )}
           </GetPanelWidth>
+          <DetailModal />
         </Fragment>
       </Provider>
     </ThemeProvider>
