@@ -10,7 +10,7 @@ Monitoring for your front end assets. Gives you nice graphs to track the size of
 Install the package:
 
 ```
-npm install -g sizemometer
+npm install -S sizemometer
 ```
 
 Set up a config file at `.sizemometer/config.js` in the root of your project.
@@ -32,13 +32,13 @@ module.exports = {
 To take your first snapshot, run:
 
 ```
-sizemometer add
+npx sizemometer add
 ```
 
 Then to view the report:
 
 ```
-sizemometer report
+npx sizemometer report
 ```
 
 
