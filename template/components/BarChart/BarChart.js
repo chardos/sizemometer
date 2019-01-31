@@ -4,7 +4,7 @@ import Bar from './Bar/Bar'
 import Tooltip from './Tooltip/Tooltip';
 import { prepareData, getPercentageFromRange } from './helpers';
 
-const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
+const BarChart = ({ data, width, height, tooltipTemplate, panelWidth, onBarClick, filename }) => {
   const { bars, maxValue, minValue } = prepareData(data, panelWidth);
 
   return (
@@ -26,7 +26,13 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth }) => {
           });
 
           return (
-            <Bar percentage={percentage} key={tooltipData.commitHash}>
+            <Bar
+              bar={bar}
+              filename={filename}
+              percentage={percentage} 
+              key={tooltipData.commitHash} 
+              onBarClick={onBarClick}
+            >
               <Tooltip data={tooltipData}>
                 {tooltipTemplate && tooltipTemplate(tooltipData)}
               </Tooltip>
