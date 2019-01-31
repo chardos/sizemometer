@@ -12,16 +12,17 @@ const DetailModal = ({detailModal, histories}) => {
   return (
     <styled.DetailModalWrapper>
       <styled.Title>{history.filename}</styled.Title>
-      <table>
+      
+      <styled.Grid>
         {history.data.bars.map(({tooltip}) => (
-          <tr key={tooltip.commitHash}>
-            <td>{tooltip.author}</td>
-            <td>{tooltip.commitHash}</td>
-            <td>{tooltip.commitMessage}</td>
-            <td>{tooltip.size}</td>
-          </tr>
+          <React.Fragment key={tooltip.commitHash}>
+            <div>{tooltip.author}</div>
+            <div>{tooltip.commitHash}</div>
+            <div>{tooltip.commitMessage}</div>
+            <div>{tooltip.size}</div>
+          </React.Fragment>
         ))}
-      </table>
+      </styled.Grid>
     </styled.DetailModalWrapper>
   );
 };
