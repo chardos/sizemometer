@@ -1,38 +1,41 @@
 import React from "react";
-import * as styled from './styled';
+import * as s from './styled';
 import { connect } from 'react-redux';
 import filesize from 'filesize';
+import { closeModal } from '../../ducks/detailModal';
 
-const DetailModal = ({detailModal, histories}) => {
+const DetailModal = ({detailModal, histories, closeModal}) => {
   if (!detailModal.isOpen) return null;
 
   const history = histories.find((hist) => hist.filename === detailModal.filename)
 
-  console.log('history', history);
-
   return (
-    <styled.DetailModalWrapper>
-      <styled.Title>{history.filename}</styled.Title>
+    <s.DetailModalWrapper>
+      <s.Title>{history.filename}</s.Title>
+      <s.CloseButton onClick={closeModal}>X</s.CloseButton>
       
-      <styled.Grid>
-        <styled.GridTitle>Author</styled.GridTitle>
-        <styled.GridTitle>Commit hash</styled.GridTitle>
-        <styled.GridTitle>Commit message</styled.GridTitle>
-        <styled.GridTitle>Size</styled.GridTitle>
+      <s.Grid>
+        <s.GridTitle>Author</s.GridTitle>
+        <s.GridTitle>Commit hash</s.GridTitle>
+        <s.GridTitle>Commit message</s.GridTitle>
+        <s.GridTitle>Size</s.GridTitle>
 
         {history.data.bars.map(({tooltip}) => (
           <React.Fragment key={tooltip.commitHash}>
-            <styled.GridItem>{tooltip.author}</styled.GridItem>
-            <styled.GridItem>{tooltip.commitHash}</styled.GridItem>
-            <styled.GridItem>{tooltip.commitMessage}</styled.GridItem>
-            <styled.GridItem>{filesize(tooltip.size)}</styled.GridItem>
+            <s.GridItem>{tooltip.author}</s.GridItem>
+            <s.GridItem>{tooltip.commitHash}</s.GridItem>
+            <s.GridItem>{tooltip.commitMessage}</s.GridItem>
+            <s.GridItem>{filesize(tooltip.size)}</s.GridItem>
           </React.Fragment>
         ))}
-      </styled.Grid>
-    </styled.DetailModalWrapper>
+      </s.Grid>
+    </s.DetailModalWrapper>
   );
 };
 
-export default connect(({detailModal, histories}) => ({
-  detailModal, histories
-}))(DetailModal);
+export default connect(
+  ({detailModal, histories}) => ({
+    detailModal, histories
+  }),
+  { closeModal }
+)(DetailModal);

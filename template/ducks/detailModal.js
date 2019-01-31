@@ -17,7 +17,10 @@ export default function detailModal(state = initialState, action) {
       };
 
     case CLOSE_MODAL:
-      return state;
+      return {
+        ...state,
+        isOpen: false,
+      };
 
     default:
       return state;
