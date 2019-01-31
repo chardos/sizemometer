@@ -1,3 +1,8 @@
+## 0.3.0
+
+- Added modal for viewing snapshot data in detail
+- Bumped get-git-data to 1.3.0 for increased buffer size, and git.log(limit)
+
 ## 0.2.1
 
 - babel-polyfill from devDependencies to dependencies

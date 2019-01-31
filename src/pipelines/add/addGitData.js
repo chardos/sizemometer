@@ -2,7 +2,7 @@ const git = require('get-git-data');
 
 module.exports = async (data) => {
   const { files } = data;
-  const commits = await git.log();
+  const commits = await git.log(10);
 
   const latestCommit = commits[0];
   const {commitHash, commitMessage, timestamp, authorName: author} = latestCommit;
