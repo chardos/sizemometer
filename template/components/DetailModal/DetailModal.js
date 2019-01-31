@@ -1,5 +1,5 @@
 import React from "react";
-import { DetailModalWrapper } from './styled';
+import * as styled from './styled';
 import { connect } from 'react-redux';
 
 const DetailModal = ({detailModal, histories}) => {
@@ -10,10 +10,11 @@ const DetailModal = ({detailModal, histories}) => {
   console.log('history', history);
 
   return (
-    <DetailModalWrapper>
+    <styled.DetailModalWrapper>
+      <styled.Title>{history.filename}</styled.Title>
       <table>
         {history.data.bars.map(({tooltip}) => (
-          <tr>
+          <tr key={tooltip.commitHash}>
             <td>{tooltip.author}</td>
             <td>{tooltip.commitHash}</td>
             <td>{tooltip.commitMessage}</td>
@@ -21,7 +22,7 @@ const DetailModal = ({detailModal, histories}) => {
           </tr>
         ))}
       </table>
-    </DetailModalWrapper>
+    </styled.DetailModalWrapper>
   );
 };
 
