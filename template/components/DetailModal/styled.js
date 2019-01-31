@@ -20,9 +20,19 @@ export const Title = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+`
 
-  div {
-    padding: 20px 5px 20px 0;
-    border-top: 1px solid #324350;
-  }
+export const GridTitle = styled.div`
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+`;
+
+export const GridItem = styled.div `
+  padding: 20px 5px 20px 0;
+  border-top: 1px solid #324350;
+  font-size: 14px;
+  color: rgba(255,255,255, 0.85);
 `

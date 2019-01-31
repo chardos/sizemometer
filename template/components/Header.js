@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import filesize from 'filesize';
 
-
 const HeaderBar = styled.div`
   display: flex;
   justify-content: space-between;
