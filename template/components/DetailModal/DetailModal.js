@@ -20,14 +20,20 @@ const DetailModal = ({detailModal, histories, closeModal}) => {
         <s.GridTitle>Commit message</s.GridTitle>
         <s.GridTitle>Size</s.GridTitle>
 
-        {history.data.bars.map(({tooltip}) => (
-          <React.Fragment key={tooltip.commitHash}>
-            <s.GridItem>{tooltip.author}</s.GridItem>
-            <s.GridItem>{tooltip.commitHash}</s.GridItem>
-            <s.GridItem>{tooltip.commitMessage}</s.GridItem>
-            <s.GridItem>{filesize(tooltip.size)}</s.GridItem>
-          </React.Fragment>
-        ))}
+        {history.data.bars.map(({tooltip}) => {
+          const GridItem = tooltip.commitHash === detailModal.commitHash
+            ? s.HighlightedGridItem
+            : s.GridItem;
+
+          return (
+            <React.Fragment key={tooltip.commitHash}>
+              <GridItem>{tooltip.author}</GridItem>
+              <GridItem>{tooltip.commitHash}</GridItem>
+              <GridItem>{tooltip.commitMessage}</GridItem>
+              <GridItem>{filesize(tooltip.size)}</GridItem>
+            </React.Fragment>
+          )
+        })}
       </s.Grid>
     </s.DetailModalWrapper>
   );

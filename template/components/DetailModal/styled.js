@@ -48,11 +48,17 @@ export const GridTitle = styled.div`
   letter-spacing: 4px;
   font-size: 12px;
   margin-bottom: 20px;
+  color: rgba(255,255,255, 0.8);
 `;
 
 export const GridItem = styled.div `
   padding: 20px 10px 20px 0;
   border-top: 1px solid #324350;
   font-size: 14px;
-  color: rgba(255,255,255, 0.85);
+  color: rgba(255,255,255, 0.8);
+`
+
+export const HighlightedGridItem = styled(GridItem)`
+  color: white;
+  font-weight: bold;
 `
