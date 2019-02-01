@@ -11,7 +11,7 @@ const build = async () => {
   
   await copyIndexOver()
 
-  const config = require('../../template/webpack.config');
+  const config = require('../../website/webpack.config');
   const compiler = webpack(config);
   
   await compiler.run((err, stats) => {

@@ -1,5 +1,5 @@
 module.exports = {
   style: 'ducks',
-  codeDirectory: 'template',
+  codeDirectory: 'website',
   componentsDirectory: 'components'
 }

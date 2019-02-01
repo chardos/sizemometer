@@ -18,8 +18,8 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth, onBarClick
 
           const percentage = getPercentageFromRange({
             minValue,
-            maxValue, 
-            currentValue: bar.size, 
+            maxValue,
+            currentValue: bar.size,
             offsetBottom: 10
           });
 
