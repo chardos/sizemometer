@@ -1,25 +1,17 @@
 import { takeLast } from 'ramda';
 
-export const formatFileHistories = (history) => {
-  return Object.keys(history).map(key => {
-    const historyItem = history[key];
+export const formatFileHistories = (histories) => {
+  return Object.keys(histories).map(key => {
+    const singleFileHistory = histories[key];
 
     return {
       filename: key,
-      data: {
-        bars: historyItem.map((data) => {
-          const { size } = data;
-          return {
-            value: size,
-            tooltip: data
-          }
-        })
-      }
+      data: singleFileHistory
     }
   })
 }
 
 export const getGrandTotal = (histories) => histories.reduce((acc, curr) => {
-  const currentValue = takeLast(1, curr.data.bars)[0].value;
+  const currentValue = takeLast(1, curr.data)[0].size;
   return acc + currentValue;
 }, 0)
