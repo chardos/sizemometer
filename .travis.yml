@@ -1,3 +1,10 @@
 language: node_js
 node_js:
   - "10"
+jobs:  
+  include:
+    - stage: "Tests"
+      name: "Lint"
+      script: "npm run lint"
+    - name: "Tests"
+      script: "npm run test"
