@@ -12,7 +12,7 @@ const Histories = ({histories, panelWidth, openModal}) => {
         <Card className="card" key={filename}>
           <CardTitleBar>
             <div>{filename}</div>
-            <div>{filesize(data.bars[data.bars.length - 1].value)}</div>
+            <div>{filesize(data[data.length - 1].size)}</div>
           </CardTitleBar>
           
           <ChartWrapper>
@@ -23,8 +23,8 @@ const Histories = ({histories, panelWidth, openModal}) => {
               height={180}
               data={data} 
               panelWidth={panelWidth}
-              tooltipTemplate={(tooltipData) => {
-                const { size, timestamp } = tooltipData;
+              tooltipTemplate={(data) => {
+                const { size, timestamp } = data;
 
                 return (
                   <div>

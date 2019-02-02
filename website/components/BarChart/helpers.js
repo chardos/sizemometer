@@ -1,14 +1,13 @@
 import { takeLast, pipe } from 'ramda';
 
 export const prepareData = (data, panelWidth) => {
-  const { bars } = data;
-  const maxValue = bars.reduce((acc, curr) => {
-    return (acc > curr.value) ? acc : curr.value;
+  const maxValue = data.reduce((acc, curr) => {
+    return (acc > curr.size) ? acc : curr.size;
   }, 0);
 
-  const minValue = bars.reduce((acc, curr) => {
-    return (acc < curr.value) ? acc : curr.value;
-  }, bars[0].value);
+  const minValue = data.reduce((acc, curr) => {
+    return (acc < curr.size) ? acc : curr.size;
+  }, data[0].size);
 
   const PADDING = 40;
   const numBars = Math.floor((panelWidth - PADDING) / 60);
@@ -16,7 +15,7 @@ export const prepareData = (data, panelWidth) => {
   const preparedBars = pipe(
     takeLast(numBars),
     addEmptyBars(numBars)
-  )(bars)
+  )(data)
 
   return {
     maxValue,
@@ -32,7 +31,7 @@ export function getPercentageFromRange({minValue, maxValue, currentValue, offset
   return scaleMin({percentage, minimum: offsetBottom});
 }
 
-// Scales a percentage up based on a minimum value
+// Scales a percentage up based on a minimum size
 export function scaleMin({percentage, minimum}) {
   return percentage + (minimum * (100 - percentage)) / 100;
 }

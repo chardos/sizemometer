@@ -16,12 +16,10 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth, onBarClick
             return <Bar isEmpty />
           }
 
-          const { tooltip: tooltipData } = bar;
-
           const percentage = getPercentageFromRange({
             minValue,
-            maxValue, 
-            currentValue: bar.value, 
+            maxValue,
+            currentValue: bar.size,
             offsetBottom: 10
           });
 
@@ -30,11 +28,11 @@ const BarChart = ({ data, width, height, tooltipTemplate, panelWidth, onBarClick
               bar={bar}
               filename={filename}
               percentage={percentage} 
-              key={tooltipData.commitHash} 
+              key={data.commitHash} 
               onBarClick={onBarClick}
             >
-              <Tooltip data={tooltipData}>
-                {tooltipTemplate && tooltipTemplate(tooltipData)}
+              <Tooltip data={data}>
+                {tooltipTemplate && tooltipTemplate(bar)}
               </Tooltip>
             </Bar>
           )

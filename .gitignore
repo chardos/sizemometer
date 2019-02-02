@@ -3,4 +3,4 @@ node_modules
 tmp
 dist
 .sizemometer
-template/history.json
+website/history.json
