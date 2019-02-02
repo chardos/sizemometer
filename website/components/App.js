@@ -1,4 +1,6 @@
+/* eslint-disable no-undef */
 import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
 import get from 'lodash.get';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';
@@ -8,7 +10,6 @@ import Header from './Header';
 import Histories from './Histories/Histories';
 import GetPanelWidth from './GetPanelWidth';
 import store from '../store';
-import { Provider } from 'react-redux';
 import DetailModal from './DetailModal';
 import { addHistories } from '../ducks/histories';
 

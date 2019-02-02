@@ -27,10 +27,6 @@ export default function detailModal(state = initialState, action) {
   }
 }
 
-export const selectFile = () => ({
-  type: SELECT_FILE,
-});
-
 export const openModal = (bar, filename) => ({
   type: OPEN_MODAL,
   payload: {

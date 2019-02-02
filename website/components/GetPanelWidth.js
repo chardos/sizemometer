@@ -27,7 +27,9 @@ class GetPanelWidth extends React.Component {
   }
 
   render() {
-    return this.props.children(this.state.width);
+    const { width } = this.state;
+    const { children } = this.props;
+    return children(width);
   }
 }
 

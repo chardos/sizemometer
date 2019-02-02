@@ -10,7 +10,7 @@ export default function histories(state = [], action) {
   }
 }
 
-export const addHistories = histories => ({
+export const addHistories = fileHistories => ({
   type: ADD_HISTORIES,
-  payload: histories,
+  payload: fileHistories,
 });

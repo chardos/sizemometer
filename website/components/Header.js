@@ -27,11 +27,13 @@ const Bold = styled.span`
   font-weight: bold;
 `;
 
-const Header = (props) => (
+const Header = ({ title, grandTotal }) => (
   <HeaderBar>
-    <Title>{props.title || 'Sizemometer'}</Title>
+    <Title>{title || 'Sizemometer'}</Title>
     <GrandTotal>
-      All files: <Bold>{filesize(props.grandTotal)}</Bold>
+      All files:
+      {' '}
+      <Bold>{filesize(grandTotal)}</Bold>
     </GrandTotal>
   </HeaderBar>
 );
