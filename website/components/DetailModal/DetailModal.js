@@ -1,19 +1,19 @@
-import React from "react";
-import * as s from './styled';
+import React from 'react';
 import { connect } from 'react-redux';
 import filesize from 'filesize';
+import * as s from './styled';
 import { closeModal } from '../../ducks/detailModal';
 
-const DetailModal = ({detailModal, histories, closeModal}) => {
+const DetailModal = ({ detailModal, histories, closeModal }) => {
   if (!detailModal.isOpen) return null;
 
-  const history = histories.find((hist) => hist.filename === detailModal.filename)
+  const history = histories.find((hist) => hist.filename === detailModal.filename);
 
   return (
     <s.DetailModalWrapper>
       <s.Title>{history.filename}</s.Title>
       <s.CloseButton onClick={closeModal}>X</s.CloseButton>
-      
+
       <s.Grid>
         <s.GridTitle>Author</s.GridTitle>
         <s.GridTitle>Commit hash</s.GridTitle>
@@ -21,7 +21,9 @@ const DetailModal = ({detailModal, histories, closeModal}) => {
         <s.GridTitle>Size</s.GridTitle>
         {console.log('history.data', history.data)}
 
-        {history.data.map(({commitHash, author, commitMessage, size}) => {
+        {history.data.map(({
+          commitHash, author, commitMessage, size,
+        }) => {
           const GridItem = commitHash === detailModal.commitHash
             ? s.HighlightedGridItem
             : s.GridItem;
@@ -33,7 +35,7 @@ const DetailModal = ({detailModal, histories, closeModal}) => {
               <GridItem>{commitMessage}</GridItem>
               <GridItem>{filesize(size)}</GridItem>
             </React.Fragment>
-          )
+          );
         })}
       </s.Grid>
     </s.DetailModalWrapper>
@@ -41,8 +43,8 @@ const DetailModal = ({detailModal, histories, closeModal}) => {
 };
 
 export default connect(
-  ({detailModal, histories}) => ({
-    detailModal, histories
+  ({ detailModal, histories }) => ({
+    detailModal, histories,
   }),
-  { closeModal }
+  { closeModal },
 )(DetailModal);

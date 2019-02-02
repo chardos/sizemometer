@@ -1,7 +1,7 @@
 {
   "name": "sizemometer",
   "description": "A library for monitoring your bundle sizes",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "bin": {
     "sizemometer": "bin/main"
   },
@@ -9,8 +9,8 @@
     "start": "tsc --watch",
     "build": "node scripts/build",
     "test": "ENV=test jest",
-    "lint": "eslint src/**/*.js website/**/*.js",
-    "lint:fix": "eslint src/**/*.js website/**/*.js --fix",
+    "lint": "eslint src website",
+    "lint:fix": "eslint src website --fix",
     "prepublish": "npm run build"
   },
   "repository": {

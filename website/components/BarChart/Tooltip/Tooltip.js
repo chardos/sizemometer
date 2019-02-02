@@ -33,20 +33,18 @@ export const TooltipWrapper = styled.div`
     border-width: 8px;
     margin-left: -8px;
   }
-`
+`;
 
-const Tooltip = ({data, children}) => {
-  return (
-    <TooltipWrapper>
-      {!children && data && data.map(datum => (
-        <div>
-          <Label>{datum.label}</Label>
-          <Value>{datum.value}</Value>
-        </div>
-      ))}
-      {children}
-    </TooltipWrapper>
-  )
-}
+const Tooltip = ({ data, children }) => (
+  <TooltipWrapper>
+    {!children && data && data.map(datum => (
+      <div>
+        <Label>{datum.label}</Label>
+        <Value>{datum.value}</Value>
+      </div>
+    ))}
+    {children}
+  </TooltipWrapper>
+);
 
 export default Tooltip;

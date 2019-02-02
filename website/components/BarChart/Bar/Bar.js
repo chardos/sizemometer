@@ -8,7 +8,7 @@ const Bar = styled.div`
   background-color: #6D8294;
   height: 100%;
   transition: 0.2s all;
-`
+`;
 
 const BarWrapper = styled.div`
   cursor: pointer;
@@ -26,18 +26,20 @@ const BarWrapper = styled.div`
     opacity: 1;
     transform: translate(-50%, -0);
   }
-`
+`;
 
-export default ({ children, percentage, isEmpty, onBarClick, bar, filename }) => {
+export default ({
+  children, percentage, isEmpty, onBarClick, bar, filename,
+}) => {
   const styleProps = {
     height: isEmpty ? '10px' : `${percentage}%`,
     opacity: isEmpty ? 0.5 : 1,
-    pointerEvents: isEmpty ? 'none' : 'auto'
-  }
+    pointerEvents: isEmpty ? 'none' : 'auto',
+  };
 
   return (
     <BarWrapper {...styleProps} onClick={() => onBarClick(bar, filename)}>
       <Bar>{children}</Bar>
     </BarWrapper>
-  )
-}
+  );
+};
