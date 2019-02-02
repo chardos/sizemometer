@@ -8,10 +8,10 @@ const writeConfigJsonp = require('../pipelines/add/writeConfigJsonp');
 const setup = require('../pipelines/add/setup');
 
 module.exports = async (
-  injectedAddGitData = addGitData, 
-  scopedPath
+  injectedAddGitData = addGitData,
+  scopedPath,
 ) => {
-  function log(x){console.log('LOG:', x); return x}
+  function log(x) { console.log('LOG:', x); return x; }
 
   await setup(scopedPath)
     .then(addFileSizes)
@@ -23,6 +23,6 @@ module.exports = async (
     .then(rewriteJsonp)
     .then(writeConfigJsonp)
     .catch((err) => {
-      throw new Error(err)
-    })
+      throw new Error(err);
+    });
 };

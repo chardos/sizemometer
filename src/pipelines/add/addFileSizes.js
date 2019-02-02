@@ -10,14 +10,12 @@ module.exports = async (data) => {
     const fileStats = await fs.stat(path);
     return {
       size: fileStats.size,
-      ...file
-    }
-  })
+      ...file,
+    };
+  });
 
   return {
     ...data,
-    files: await Promise.all(filePromises)
-  }
-}
-
-
+    files: await Promise.all(filePromises),
+  };
+};

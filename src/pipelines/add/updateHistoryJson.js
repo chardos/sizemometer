@@ -5,7 +5,9 @@ module.exports = async (data) => {
   const outputJson = cloneDeep(inputJson);
 
   files.forEach((file) => {
-    const { commitHash, commitMessage, timestamp, author, size, shortPath } = file;
+    const {
+      commitHash, commitMessage, timestamp, author, size, shortPath,
+    } = file;
     const keyExists = Boolean(outputJson[shortPath]);
 
     if (!keyExists) {
@@ -23,16 +25,16 @@ module.exports = async (data) => {
         commitHash,
         commitMessage,
         size,
-        timestamp
-      })
+        timestamp,
+      });
       console.log(`${shortPath}: New entry added.`);
     } else {
       console.log(`${shortPath}: No new commits found.`);
     }
-  })
+  });
 
   return {
     ...data,
-    outputJson
+    outputJson,
   };
-}
+};

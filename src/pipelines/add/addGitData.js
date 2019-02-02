@@ -5,18 +5,20 @@ module.exports = async (data) => {
   const commits = await git.log(10);
 
   const latestCommit = commits[0];
-  const {commitHash, commitMessage, timestamp, authorName: author} = latestCommit;
+  const {
+    commitHash, commitMessage, timestamp, authorName: author,
+  } = latestCommit;
 
   const newFiles = files.map(file => ({
     ...file,
     commitHash,
     commitMessage,
     timestamp,
-    author
-  }))
+    author,
+  }));
 
   return {
     ...data,
-    files: newFiles
-  }
-}
+    files: newFiles,
+  };
+};
