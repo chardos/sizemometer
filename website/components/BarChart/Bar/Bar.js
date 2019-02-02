@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TooltipWrapper } from '../Tooltip/Tooltip';
 
-const Bar = styled.div`
+const BarInner = styled.div`
   border-radius: 5px;
   width: 10px;
   background-color: #6D8294;
@@ -18,7 +18,7 @@ const BarWrapper = styled.div`
   opacity: ${props => props.opacity};
   pointer-events: ${props => props.pointerEvents};
 
-  &:hover ${Bar} {
+  &:hover ${BarInner} {
     background-color: ${props => props.theme.accentColor || '#FFD067'};
   }
 
@@ -28,7 +28,7 @@ const BarWrapper = styled.div`
   }
 `;
 
-export default ({
+const Bar = ({
   children, percentage, isEmpty, onBarClick, bar, filename,
 }) => {
   const styleProps = {
@@ -39,7 +39,9 @@ export default ({
 
   return (
     <BarWrapper {...styleProps} onClick={() => onBarClick(bar, filename)}>
-      <Bar>{children}</Bar>
+      <BarInner>{children}</BarInner>
     </BarWrapper>
   );
 };
+
+export default Bar;

@@ -27,8 +27,10 @@ module.exports = async (data) => {
         size,
         timestamp,
       });
+      // eslint-disable-next-line
       console.log(`${shortPath}: New entry added.`);
     } else {
+      // eslint-disable-next-line
       console.log(`${shortPath}: No new commits found.`);
     }
   });

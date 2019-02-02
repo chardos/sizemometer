@@ -9,8 +9,8 @@
     "start": "tsc --watch",
     "build": "node scripts/build",
     "test": "ENV=test jest",
-    "lint": "eslint src website",
-    "lint:fix": "eslint src website --fix",
+    "lint": "eslint 'src/**/*.js' 'website/**/*.js' --ignore-pattern '*.test.js'",
+    "lint:fix": "eslint 'src/**/*.js' 'website/**/*.js' --fix --ignore-pattern '*.test.js'",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -57,6 +57,7 @@
     "eslint-plugin-import": "2.16.0",
     "eslint-plugin-jsx-a11y": "6.2.0",
     "eslint-plugin-react": "7.12.4",
+    "find-up": "^3.0.0",
     "regenerator-runtime": "0.13.1"
   }
 }

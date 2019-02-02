@@ -10,12 +10,13 @@ module.exports = () => {
 
   const script = require(`./commands/${scriptName}`);
 
-
   script()
     .catch((err) => {
+      // eslint-disable-next-line
       console.log(err.message);
 
       if (process.env.DEBUG) {
+        // eslint-disable-next-line
         console.log(err);
       }
     });

@@ -19,7 +19,6 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
         <s.GridTitle>Commit hash</s.GridTitle>
         <s.GridTitle>Commit message</s.GridTitle>
         <s.GridTitle>Size</s.GridTitle>
-        {console.log('history.data', history.data)}
 
         {history.data.map(({
           commitHash, author, commitMessage, size,

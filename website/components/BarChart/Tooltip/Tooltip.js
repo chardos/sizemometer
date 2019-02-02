@@ -37,10 +37,10 @@ export const TooltipWrapper = styled.div`
 
 const Tooltip = ({ data, children }) => (
   <TooltipWrapper>
-    {!children && data && data.map(datum => (
-      <div>
-        <Label>{datum.label}</Label>
-        <Value>{datum.value}</Value>
+    {!children && data && data.map(({ label, value }) => (
+      <div key={`${label}-${value}`}>
+        <Label>{label}</Label>
+        <Value>{value}</Value>
       </div>
     ))}
     {children}

@@ -6,6 +6,7 @@ module.exports = async (data) => {
   const historyExists = await fs.exists(paths.history);
 
   if (!historyExists) {
+    // eslint-disable-next-line
     console.log(`${HISTORY_PATH} not found. Writing new file.`);
     await fs.writeFile(paths.history, '{}');
   }

@@ -1,5 +1,3 @@
-const path = require('path');
-
 const entry = `${__dirname}/index.js`;
 const findUp = require('find-up');
 

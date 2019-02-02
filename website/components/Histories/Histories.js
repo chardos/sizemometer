@@ -6,6 +6,7 @@ import {
 } from './styled';
 import BarChart from '../BarChart';
 import { openModal } from '../../ducks/detailModal';
+import { getReadableDate } from '../../utils';
 
 const Histories = ({ histories, panelWidth, openModal }) => (
   <HistoriesWrapper>
@@ -45,8 +46,3 @@ const Histories = ({ histories, panelWidth, openModal }) => (
 export default connect(null, {
   openModal,
 })(Histories);
-
-function getReadableDate(timestamp) {
-  const date = new Date(parseInt(timestamp));
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-}
