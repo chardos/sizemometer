@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import filesize from 'filesize';
 import * as s from './styled';
 import { closeModal } from '../../ducks/detailModal';
+import { shortCommitHash } from '../../utils';
 
 const DetailModal = ({ detailModal, histories, closeModal }) => {
   if (!detailModal.isOpen) return null;
@@ -30,7 +31,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
           return (
             <React.Fragment key={commitHash}>
               <GridItem>{author}</GridItem>
-              <GridItem>{commitHash}</GridItem>
+              <GridItem>{shortCommitHash(commitHash)}</GridItem>
               <GridItem>{commitMessage}</GridItem>
               <GridItem>{filesize(size)}</GridItem>
             </React.Fragment>
