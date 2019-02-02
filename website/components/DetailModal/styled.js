@@ -15,7 +15,7 @@ export const Title = styled.div`
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 30px;
-`
+`;
 
 export const CloseButton = styled.div`
   position: absolute;
@@ -35,12 +35,12 @@ export const CloseButton = styled.div`
   &:hover {
     border: 1px solid rgba(255,255,255,0.3);
   }
-`
+`;
 
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-`
+`;
 
 export const GridTitle = styled.div`
   font-weight: bold;
@@ -51,14 +51,14 @@ export const GridTitle = styled.div`
   color: rgba(255,255,255, 0.8);
 `;
 
-export const GridItem = styled.div `
+export const GridItem = styled.div`
   padding: 20px 10px 20px 0;
   border-top: 1px solid #324350;
   font-size: 14px;
   color: rgba(255,255,255, 0.8);
-`
+`;
 
 export const HighlightedGridItem = styled(GridItem)`
   color: white;
   font-weight: bold;
-`
+`;

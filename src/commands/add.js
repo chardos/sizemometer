@@ -11,13 +11,10 @@ module.exports = async (
   injectedAddGitData = addGitData,
   scopedPath,
 ) => {
-  function log(x) { console.log('LOG:', x); return x; }
-
   await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)
     .then(getHistoryJson)
-    // .then(log)
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
     .then(rewriteJsonp)

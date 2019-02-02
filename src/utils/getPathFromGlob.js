@@ -1,13 +1,8 @@
+/* eslint-disable no-console */
 const { promisify } = require('es6-promisify');
 const glob = require('glob');
 
 const globPromise = promisify(glob);
-
-module.exports = async function getPathFromGlob(file) {
-  const globbedPaths = await globPromise(file.fullPath);
-  throwErrorsIfNeeded(globbedPaths, file.shortPath);
-  return globbedPaths[0];
-};
 
 function throwErrorsIfNeeded(globbedPaths, shortPath) {
   if (globbedPaths.length > 1) {
@@ -17,3 +12,9 @@ function throwErrorsIfNeeded(globbedPaths, shortPath) {
     throw new Error(`${shortPath} matches no files. Please change it to match one.`);
   }
 }
+
+module.exports = async function getPathFromGlob(file) {
+  const globbedPaths = await globPromise(file.fullPath);
+  throwErrorsIfNeeded(globbedPaths, file.shortPath);
+  return globbedPaths[0];
+};

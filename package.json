@@ -9,7 +9,7 @@
     "start": "tsc --watch",
     "build": "node scripts/build",
     "test": "ENV=test jest",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js website/**/*.js",
     "prepublish": "npm run build"
   },
   "repository": {

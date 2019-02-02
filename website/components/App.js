@@ -12,7 +12,6 @@ import { Provider } from 'react-redux';
 import DetailModal from './DetailModal';
 import { addHistories } from '../ducks/histories';
 
-
 class App extends React.Component {
   componentDidMount() {
     const fileHistories = formatFileHistories(window.snapshot);
