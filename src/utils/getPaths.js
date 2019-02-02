@@ -1,6 +1,6 @@
 function getPaths(scopePath) {
   let appRoot = process.cwd();
-  const sizemometerRoot = `${__dirname}/../..`
+  const sizemometerRoot = `${__dirname}/../..`;
 
   if (process.env.ENV === 'test') {
     appRoot = `${appRoot}/tmp/${scopePath}`;
@@ -14,7 +14,7 @@ function getPaths(scopePath) {
     configJsonp: `${sizemometerRoot}/dist/config.jsonp`,
     history: `${appRoot}/.sizemometer/history.json`,
     historyJsonp: `${sizemometerRoot}/dist/history.jsonp`,
-  }
+  };
 }
 
 module.exports = getPaths;

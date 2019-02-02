@@ -4,10 +4,10 @@ import get from 'lodash.get';
 
 class GetPanelWidth extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      width: 0
-    }
+      width: 0,
+    };
     this.debouncedUpdate = debounce(this.updateWidth.bind(this), 200);
   }
 
@@ -27,7 +27,9 @@ class GetPanelWidth extends React.Component {
   }
 
   render() {
-    return this.props.children(this.state.width)
+    const { width } = this.state;
+    const { children } = this.props;
+    return children(width);
   }
 }
 

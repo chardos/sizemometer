@@ -7,7 +7,7 @@ const fs = require('fs-extra');
 module.exports = async (data) => {
   const { paths } = data;
   const config = require(paths.config);
-  const outputStr = `window.config = ${JSON.stringify(config, null , 2)}`
+  const outputStr = `window.config = ${JSON.stringify(config, null, 2)}`;
   await fs.writeFile(paths.configJsonp, outputStr);
   return data;
-}
+};

@@ -11,8 +11,8 @@ module.exports = async (data) => {
   const outputStr = `window.snapshot = ${JSON.stringify(outputJson, null, 2)}`;
 
   await makeDir(
-    paths.sizemometerRoot + '/dist'
+    `${paths.sizemometerRoot}/dist`,
   );
   await fs.writeFile(paths.historyJsonp, outputStr);
   return data;
-}
+};

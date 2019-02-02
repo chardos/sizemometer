@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Shorten commithash to short hash in detail modal
+
 ## 0.3.0
 
 - Added modal for viewing snapshot data in detail

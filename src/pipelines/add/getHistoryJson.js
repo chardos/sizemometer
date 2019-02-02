@@ -6,7 +6,7 @@ module.exports = async (data) => {
   const historyExists = await fs.exists(paths.history);
 
   if (!historyExists) {
-    console.log(`${HISTORY_PATH} not found. Writing new file.`)
+    console.log(`${HISTORY_PATH} not found. Writing new file.`);
     await fs.writeFile(paths.history, '{}');
   }
 
@@ -15,6 +15,6 @@ module.exports = async (data) => {
 
   return {
     ...data,
-    inputJson: historyJson
-  }
-}
+    inputJson: historyJson,
+  };
+};

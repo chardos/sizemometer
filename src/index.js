@@ -1,7 +1,7 @@
 const minimist = require('minimist');
 
 module.exports = () => {
-  const args = minimist(process.argv.slice(2))
+  const args = minimist(process.argv.slice(2));
   let scriptName = process.argv[2];
 
   if (args.v || args.version) {
