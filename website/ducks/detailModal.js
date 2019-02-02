@@ -37,7 +37,7 @@ export const openModal = (bar, filename) => {
   return {
     type: OPEN_MODAL,
     payload: {
-      commitHash: bar.tooltip.commitHash,
+      commitHash: bar.commitHash,
       filename
     }
   };
