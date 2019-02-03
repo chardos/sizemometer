@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import get from 'lodash.get';
@@ -12,11 +11,18 @@ import GetPanelWidth from './GetPanelWidth';
 import store from '../store';
 import DetailModal from './DetailModal';
 import { addHistories } from '../ducks/histories';
+import { closeModal } from '../ducks/detailModal';
 
 class App extends React.Component {
   componentDidMount() {
     const fileHistories = formatFileHistories(window.snapshot);
     store.dispatch(addHistories(fileHistories));
+
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'Escape') {
+        store.dispatch(closeModal());
+      }
+    });
   }
 
   render() {

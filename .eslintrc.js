@@ -11,7 +11,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'import/no-dynamic-require': 'off',
     'global-require': 'off',
-    'no-shadow': 'off'
+    'no-shadow': 'off',
+    'arrow-body-style': 'off',
   },
   env: {
     'browser': true,

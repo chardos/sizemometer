@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { FilledBar } from './HorizontalBar';
 
 export const DetailModalWrapper = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #1A262F;
+  top: 30px;
+  left: 30px;
+  height: calc(100% - 60px);
+  width: calc(100% - 60px);
+  background-color: #121a21;
   padding: 30px;
   overflow: scroll;
 `;
@@ -39,7 +40,7 @@ export const CloseButton = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 `;
 
 export const GridTitle = styled.div`
@@ -52,13 +53,20 @@ export const GridTitle = styled.div`
 `;
 
 export const GridItem = styled.div`
-  padding: 20px 10px 20px 0;
-  border-top: 1px solid #324350;
+  display: flex;
+  align-items: center;
+  padding: 20px 10px 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 14px;
-  color: rgba(255,255,255, 0.8);
+  color: rgba(255,255,255, 0.65);
 `;
 
 export const HighlightedGridItem = styled(GridItem)`
-  color: white;
+  color: rgba(255,255,255,0.8);
   font-weight: bold;
+  background-color: rgba(0,0,0,0.3);
+
+  ${FilledBar} {
+    background-color: rgba(255,255,255,0.8);
+  }
 `;
