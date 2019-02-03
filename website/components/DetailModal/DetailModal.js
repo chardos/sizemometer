@@ -14,6 +14,8 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
   const minValue = history.data.reduce((acc, curr) => (
     (acc < curr.size) ? acc : curr.size
   ), history.data[0].size);
+  
+  const reversedData = [...history.data].reverse();
 
   return (
     <s.DetailModalWrapper>
@@ -27,7 +29,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
         <s.GridTitle>Size</s.GridTitle>
         <s.GridTitle />
 
-        {history.data.map(({
+        {reversedData.map(({
           commitHash, author, commitMessage, size,
         }) => {
           const percentage = getPercentageFromRange({
