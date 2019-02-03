@@ -49,6 +49,7 @@ export const GridTitle = styled.div`
   letter-spacing: 4px;
   font-size: 12px;
   margin-bottom: 20px;
+  padding-left: 10px;
   color: rgba(255,255,255, 0.8);
 `;
 
