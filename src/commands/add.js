@@ -3,8 +3,8 @@ const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
 const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
-const rewriteJsonp = require('../pipelines/add/rewriteJsonp');
-const writeConfigJsonp = require('../pipelines/add/writeConfigJsonp');
+const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
+const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const setup = require('../pipelines/add/setup');
 
 module.exports = async (
@@ -17,8 +17,8 @@ module.exports = async (
     .then(getHistoryJson)
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
-    .then(rewriteJsonp)
-    .then(writeConfigJsonp)
+    .then(buildHistoryJsonP)
+    .then(buildConfigJsonP)
     .catch((err) => {
       throw new Error(err);
     });
