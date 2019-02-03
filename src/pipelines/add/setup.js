@@ -2,8 +2,8 @@ const fs = require('fs-extra');
 const getPaths = require('../../utils/getPaths');
 require('babel-polyfill');
 
-const setup = (scopePath) => {
-  const paths = getPaths(scopePath);
+const setup = (scopedPath) => {
+  const paths = getPaths(scopedPath);
   // check config is set up correctly
 
   const configExists = fs.existsSync(paths.config);

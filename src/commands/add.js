@@ -6,20 +6,25 @@ const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
 const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
 const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const setup = require('../pipelines/add/setup');
+const getPaths = require('../utils/getPaths');
 
 module.exports = async (
   injectedAddGitData = addGitData,
   scopedPath,
 ) => {
+  const paths = getPaths(scopedPath);
+
   await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)
     .then(getHistoryJson)
     .then(updateHistoryJson)
     .then(rewriteHistoryJson)
-    .then(buildHistoryJsonP)
-    .then(buildConfigJsonP)
-    .catch((err) => {
-      throw new Error(err);
-    });
+    .then(async () => {
+      await buildHistoryJsonP(paths)
+      await buildConfigJsonP(paths)
+    })
+    // .catch((err) => {
+    //   throw new Error(err);
+    // });
 };
