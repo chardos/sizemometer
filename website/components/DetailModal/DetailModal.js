@@ -14,7 +14,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
   const minValue = history.data.reduce((acc, curr) => (
     (acc < curr.size) ? acc : curr.size
   ), history.data[0].size);
-  
+
   const reversedData = [...history.data].reverse();
 
   return (

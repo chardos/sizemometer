@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   background-color: rgba(255,255,255,0.15);
 `;
 
-const FilledBar = styled.div`
+export const FilledBar = styled.div`
   height: 100%;
   width: ${props => props.percentage}%;
   background-color: white;

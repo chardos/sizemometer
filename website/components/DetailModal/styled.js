@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FilledBar } from './HorizontalBar';
 
 export const DetailModalWrapper = styled.div`
   position: fixed;
@@ -52,13 +53,20 @@ export const GridTitle = styled.div`
 `;
 
 export const GridItem = styled.div`
-  padding: 20px 10px 20px 0;
+  display: flex;
+  align-items: center;
+  padding: 20px 10px 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 14px;
-  color: rgba(255,255,255, 0.8);
+  color: rgba(255,255,255, 0.65);
 `;
 
 export const HighlightedGridItem = styled(GridItem)`
-  color: white;
+  color: rgba(255,255,255,0.8);
   font-weight: bold;
+  background-color: rgba(0,0,0,0.3);
+
+  ${FilledBar} {
+    background-color: rgba(255,255,255,0.8);
+  }
 `;
