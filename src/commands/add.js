@@ -16,9 +16,9 @@ module.exports = async (
   await setup(scopedPath)
     .then(addFileSizes)
     .then(injectedAddGitData)
-    .then(getHistoryJson)
-    .then(updateHistoryJson)
-    .then(async () => {
+    .then(async (data) => {
+      const historyJson = await getHistoryJson(data);
+      await updateHistoryJson(paths, historyJson, data)
       await buildHistoryJsonP(paths)
       await buildConfigJsonP(paths)
     })

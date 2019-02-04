@@ -13,9 +13,5 @@ module.exports = async (data) => {
 
   let historyJson = await fs.readFile(paths.history);
   historyJson = JSON.parse(historyJson.toString());
-
-  return {
-    ...data,
-    inputJson: historyJson,
-  };
+  return historyJson;
 };
