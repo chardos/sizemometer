@@ -7,7 +7,7 @@ const makeDir = require('make-dir');
  */
 
 module.exports = async (paths) => {
-  const historyJson = require(paths.history)
+  const historyJson = require(paths.history);
   const outputStr = `window.snapshot = ${JSON.stringify(historyJson, null, 2)}`;
 
   await makeDir(

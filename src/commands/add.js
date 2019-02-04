@@ -1,3 +1,4 @@
+require('babel-polyfill');
 const validateConfig = require('../pipelines/add/validateConfig');
 const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
@@ -18,7 +19,7 @@ module.exports = async (
   const filesWithSizes = await addFileSizes(trackedFiles);
   const filesWithGitData = await injectedAddGitData(filesWithSizes);
   const historyJson = await getHistoryJson(paths);
-  await updateHistoryJson(paths, historyJson, filesWithGitData)
-  await buildHistoryJsonP(paths)
-  await buildConfigJsonP(paths)
+  await updateHistoryJson(paths, historyJson, filesWithGitData);
+  await buildHistoryJsonP(paths);
+  await buildConfigJsonP(paths);
 };

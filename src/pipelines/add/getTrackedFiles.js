@@ -1,6 +1,3 @@
-const fs = require('fs-extra');
-const getPaths = require('../../utils/getPaths');
-require('babel-polyfill');
 
 const getTrackedFiles = (paths) => {
   const config = require(paths.config);

@@ -12,5 +12,5 @@ module.exports = async (trackedFiles) => {
     };
   });
 
-  return await Promise.all(filePromises)
+  return Promise.all(filePromises);
 };
