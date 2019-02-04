@@ -1,3 +1,4 @@
+const validateConfig = require('../pipelines/add/validateConfig');
 const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
@@ -5,7 +6,6 @@ const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
 const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
 const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const getTrackedFiles = require('../pipelines/add/getTrackedFiles');
-// const setup = require('../pipelines/add/setup');
 const getPaths = require('../utils/getPaths');
 
 module.exports = async (
@@ -13,6 +13,7 @@ module.exports = async (
   scopedPath, // path scoping for tests
 ) => {
   const paths = getPaths(scopedPath);
+  validateConfig(paths);
   const trackedFiles = await getTrackedFiles(paths, scopedPath);
   const filesWithSizes = await addFileSizes(trackedFiles);
   const filesWithGitData = await injectedAddGitData(filesWithSizes);

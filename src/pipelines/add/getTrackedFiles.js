@@ -2,19 +2,9 @@ const fs = require('fs-extra');
 const getPaths = require('../../utils/getPaths');
 require('babel-polyfill');
 
-const getTrackedFiles = (paths, scopedPath) => {
-  // check config is set up correctly
-  const configExists = fs.existsSync(paths.config);
-  if (!configExists) {
-    throw new Error('Please add a config file at .sizemometer/config.js');
-  }
-
+const getTrackedFiles = (paths) => {
   const config = require(paths.config);
   const { trackedFiles } = config;
-
-  if (!trackedFiles) {
-    throw new Error('Please add a "trackedFiles" property to your config.');
-  }
 
   // map short and long paths
   const files = trackedFiles.map(path => ({
