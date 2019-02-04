@@ -121,7 +121,13 @@ describe('Command: Add', () => {
     })  
   })
 
-  // describe('test multiple files', () => {
-    
-  // })
+  describe('When there is no config.json', () => {
+    it('should throw an error', async () => {
+      const scopePath = 'no-config-json';
+
+      await expect(
+        add(mockAddGitData(), scopePath)
+      ).rejects.toThrow('Please add a config file at .sizemometer/config.js');
+    })
+  })
 })
