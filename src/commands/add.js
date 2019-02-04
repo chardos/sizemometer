@@ -2,7 +2,6 @@ const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
-const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
 const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
 const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const setup = require('../pipelines/add/setup');
@@ -19,7 +18,6 @@ module.exports = async (
     .then(injectedAddGitData)
     .then(getHistoryJson)
     .then(updateHistoryJson)
-    .then(rewriteHistoryJson)
     .then(async () => {
       await buildHistoryJsonP(paths)
       await buildConfigJsonP(paths)
