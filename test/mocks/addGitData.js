@@ -1,6 +1,4 @@
-module.exports = (additionalCommits = []) => async (data) => {
-  const { files } = data;
-  
+module.exports = (additionalCommits = []) => async (trackedFiles) => {
   const commits = [
     ...additionalCommits,
     [ '7c89a73bce5161c84b1a34130f4f902cca2d5f83',
@@ -14,17 +12,14 @@ module.exports = (additionalCommits = []) => async (data) => {
   ]
 
   const latestCommit = commits[0];
-  const [commitHash, commitMessage, timeAgo, author] = latestCommit;
+  const [commitHash, commitMessage, timeStamp, author] = latestCommit;
 
-  const newFiles = files.map(file => ({
+  const filesWithGitData = trackedFiles.map(file => ({
     ...file,
     commitHash,
     commitMessage,
     author
   }))
 
-  return {
-    ...data,
-    files: newFiles
-  }
+  return filesWithGitData
 }

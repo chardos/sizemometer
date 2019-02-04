@@ -1,11 +1,10 @@
 const cloneDeep = require('lodash.clonedeep');
 const fs = require('fs-extra');
 
-module.exports = async (paths, historyJson, data) => {
-  const { files } = data;
+module.exports = async (paths, historyJson, trackedFiles) => {
   const outputJson = cloneDeep(historyJson);
 
-  files.forEach((file) => {
+  trackedFiles.forEach((file) => {
     const {
       commitHash, commitMessage, timestamp, author, size, shortPath,
     } = file;

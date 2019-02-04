@@ -14,8 +14,5 @@ module.exports = async (data) => {
     };
   });
 
-  return {
-    ...data,
-    files: await Promise.all(filePromises),
-  };
+  return await Promise.all(filePromises)
 };

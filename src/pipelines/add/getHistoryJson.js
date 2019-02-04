@@ -1,8 +1,7 @@
 const fs = require('fs-extra');
 const { HISTORY_PATH } = require('../../constants');
 
-module.exports = async (data) => {
-  const { paths } = data;
+module.exports = async (paths) => {
   const historyExists = await fs.exists(paths.history);
 
   if (!historyExists) {

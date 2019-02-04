@@ -2,9 +2,7 @@ const fs = require('fs-extra');
 const getPaths = require('../../utils/getPaths');
 require('babel-polyfill');
 
-const setup = (scopedPath) => {
-  const paths = getPaths(scopedPath);
-
+const getTrackedFiles = (paths, scopedPath) => {
   // check config is set up correctly
   const configExists = fs.existsSync(paths.config);
   if (!configExists) {
@@ -19,16 +17,12 @@ const setup = (scopedPath) => {
   }
 
   // map short and long paths
-
   const files = trackedFiles.map(path => ({
     shortPath: path,
     fullPath: `${paths.root}/${path}`,
   }));
 
-  return Promise.resolve({
-    paths,
-    files,
-  });
+  return Promise.resolve(files);
 };
 
-module.exports = setup;
+module.exports = getTrackedFiles;

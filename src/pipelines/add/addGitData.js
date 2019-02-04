@@ -1,7 +1,6 @@
 const git = require('get-git-data');
 
-module.exports = async (data) => {
-  const { files } = data;
+module.exports = async (trackedFiles) => {
   const commits = await git.log(10);
 
   const latestCommit = commits[0];
@@ -9,7 +8,7 @@ module.exports = async (data) => {
     commitHash, commitMessage, timestamp, authorName: author,
   } = latestCommit;
 
-  const newFiles = files.map(file => ({
+  const filesWithGitData = trackedFiles.map(file => ({
     ...file,
     commitHash,
     commitMessage,
@@ -17,8 +16,5 @@ module.exports = async (data) => {
     author,
   }));
 
-  return {
-    ...data,
-    files: newFiles,
-  };
+  return filesWithGitData;
 };
