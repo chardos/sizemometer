@@ -1,12 +1,14 @@
-const fs = require('fs-extra');
 const opn = require('opn');
-// const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
-// const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
+const getPaths = require('../utils/getPaths');
+const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
+const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 
 module.exports = async () => {
+  const paths = getPaths();
+  await buildHistoryJsonP(paths);
+  await buildConfigJsonP(paths);
+
   const reportPath = `${__dirname}/../../dist/index.html`;
-  const reportExists = await fs.exists(reportPath);
-  if (!reportExists) { throw new Error('No report exists. Please run "sizemometer build"'); }
   opn(reportPath);
   process.exit(0);
 };
