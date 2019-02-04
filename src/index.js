@@ -15,7 +15,7 @@ module.exports = () => {
       // eslint-disable-next-line
       console.log(err.message);
 
-      if (process.env.DEBUG) {
+      if (process.env.DEBUG === 'true') {
         // eslint-disable-next-line
         console.log(err);
       }

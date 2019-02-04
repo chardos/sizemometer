@@ -1,6 +1,10 @@
+const findUp = require('find-up');
+const trimPath = require('../utils/trimPath');
+
 function getPaths(scopePath) {
-  let appRoot = process.cwd();
-  const sizemometerRoot = `${__dirname}/../..`;
+  const packageJsonPath = findUp.sync('package.json');
+  let appRoot = trimPath(packageJsonPath);
+  const sizemometerRoot = findUp.sync('sizemometer', { cwd: __dirname });
 
   if (process.env.ENV === 'test') {
     appRoot = `${appRoot}/tmp/${scopePath}`;
@@ -8,7 +12,7 @@ function getPaths(scopePath) {
 
   return {
     root: appRoot,
-    sizemometerRoot, // delete this dont use
+    sizemometerRoot,
     dotDirectory: `${appRoot}/.sizemometer`,
     config: `${appRoot}/.sizemometer/config.js`,
     configJsonp: `${sizemometerRoot}/dist/config.jsonp`,

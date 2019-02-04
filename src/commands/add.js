@@ -1,25 +1,25 @@
+require('babel-polyfill');
+const validateConfig = require('../pipelines/add/validateConfig');
 const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
-const rewriteHistoryJson = require('../pipelines/add/rewriteHistoryJson');
-const rewriteJsonp = require('../pipelines/add/rewriteJsonp');
-const writeConfigJsonp = require('../pipelines/add/writeConfigJsonp');
-const setup = require('../pipelines/add/setup');
+const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
+const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
+const getTrackedFiles = require('../pipelines/add/getTrackedFiles');
+const getPaths = require('../utils/getPaths');
 
 module.exports = async (
   injectedAddGitData = addGitData,
-  scopedPath,
+  scopedPath, // path scoping for tests
 ) => {
-  await setup(scopedPath)
-    .then(addFileSizes)
-    .then(injectedAddGitData)
-    .then(getHistoryJson)
-    .then(updateHistoryJson)
-    .then(rewriteHistoryJson)
-    .then(rewriteJsonp)
-    .then(writeConfigJsonp)
-    .catch((err) => {
-      throw new Error(err);
-    });
+  const paths = getPaths(scopedPath);
+  validateConfig(paths);
+  const trackedFiles = await getTrackedFiles(paths, scopedPath);
+  const filesWithSizes = await addFileSizes(trackedFiles);
+  const filesWithGitData = await injectedAddGitData(filesWithSizes);
+  const historyJson = await getHistoryJson(paths);
+  await updateHistoryJson(paths, historyJson, filesWithGitData);
+  await buildHistoryJsonP(paths);
+  await buildConfigJsonP(paths);
 };

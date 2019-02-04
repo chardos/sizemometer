@@ -1,20 +1,21 @@
 const cloneDeep = require('lodash.clonedeep');
+const fs = require('fs-extra');
 
-module.exports = async (data) => {
-  const { files, inputJson } = data;
-  const outputJson = cloneDeep(inputJson);
+module.exports = async (paths, historyJson, trackedFiles) => {
+  const outputJson = cloneDeep(historyJson);
 
-  files.forEach((file) => {
+  trackedFiles.forEach((file) => {
     const {
       commitHash, commitMessage, timestamp, author, size, shortPath,
     } = file;
+
     const keyExists = Boolean(outputJson[shortPath]);
 
     if (!keyExists) {
       outputJson[shortPath] = [];
     }
 
-    const currentHistory = inputJson[shortPath];
+    const currentHistory = historyJson[shortPath];
     const lastHistoryEntry = currentHistory && currentHistory[currentHistory.length - 1];
     const lastCommitHash = lastHistoryEntry && lastHistoryEntry.commitHash;
     const isNewHash = (commitHash !== lastCommitHash);
@@ -35,8 +36,5 @@ module.exports = async (data) => {
     }
   });
 
-  return {
-    ...data,
-    outputJson,
-  };
+  await fs.writeFile(paths.history, JSON.stringify(outputJson, null, 2));
 };

@@ -6,13 +6,12 @@ const makeDir = require('make-dir');
  * by a <script> tag in index.html
  */
 
-module.exports = async (data) => {
-  const { paths, outputJson } = data;
-  const outputStr = `window.snapshot = ${JSON.stringify(outputJson, null, 2)}`;
+module.exports = async (paths) => {
+  const historyJson = require(paths.history);
+  const outputStr = `window.snapshot = ${JSON.stringify(historyJson, null, 2)}`;
 
   await makeDir(
     `${paths.sizemometerRoot}/dist`,
   );
   await fs.writeFile(paths.historyJsonp, outputStr);
-  return data;
 };
