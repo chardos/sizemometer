@@ -20,7 +20,6 @@ export const DetailModalWrapper = styled.div`
   height: 100%;
   background-color: #1A262F;
   padding: 30px;
-  overflow: scroll;
 `;
 
 export const Title = styled.div`
@@ -48,6 +47,11 @@ export const CloseButton = styled.div`
     border: 1px solid rgba(255,255,255,0.3);
   }
 `;
+
+export const ScrollArea = styled.div`
+  overflow: scroll;
+  height: calc(100% - 55px);
+`
 
 export const Grid = styled.div`
   display: grid;
