@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import { TooltipWrapper } from '../Tooltip/Tooltip';
 
 const BarInner = styled.div`
+  position: relative;
   border-radius: 5px;
   width: 10px;
   background-color: #6D8294;
-  height: 100%;
+  height: ${props => props.height};
   transition: 0.2s all;
 `;
 
 const BarWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
   cursor: pointer;
-  position: relative;
   padding: 0 20px;
-  height: ${props => props.height};
+  height: 100%;
   opacity: ${props => props.opacity};
   pointer-events: ${props => props.pointerEvents};
 
@@ -39,7 +41,7 @@ const Bar = ({
 
   return (
     <BarWrapper {...styleProps} onClick={() => onBarClick(bar, filename)}>
-      <BarInner>{children}</BarInner>
+      <BarInner {...styleProps}>{children}</BarInner>
     </BarWrapper>
   );
 };

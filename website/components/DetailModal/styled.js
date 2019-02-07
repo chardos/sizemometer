@@ -1,15 +1,25 @@
 import styled from 'styled-components';
 import { FilledBar } from './HorizontalBar';
 
-export const DetailModalWrapper = styled.div`
+export const BlackOverlay = styled.div`
   position: fixed;
-  top: 30px;
-  left: 30px;
-  height: calc(100% - 60px);
-  width: calc(100% - 60px);
-  background-color: #121a21;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
   padding: 30px;
   overflow: scroll;
+`;
+
+export const DetailModalWrapper = styled.div`
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1000px;
+  height: 100%;
+  background-color: #1A262F;
+  padding: 30px;
 `;
 
 export const Title = styled.div`
@@ -36,6 +46,11 @@ export const CloseButton = styled.div`
   &:hover {
     border: 1px solid rgba(255,255,255,0.3);
   }
+`;
+
+export const ScrollArea = styled.div`
+  overflow: scroll;
+  height: calc(100% - 55px);
 `;
 
 export const Grid = styled.div`
