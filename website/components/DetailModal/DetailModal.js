@@ -38,7 +38,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
                 minValue,
                 maxValue,
                 currentValue: size,
-                offsetBottom: 10
+                offsetBottom: 10,
               });
 
               const GridItem = commitHash === detailModal.commitHash

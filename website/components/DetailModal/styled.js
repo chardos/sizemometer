@@ -51,7 +51,7 @@ export const CloseButton = styled.div`
 export const ScrollArea = styled.div`
   overflow: scroll;
   height: calc(100% - 55px);
-`
+`;
 
 export const Grid = styled.div`
   display: grid;
