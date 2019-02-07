@@ -1,3 +1,10 @@
+## 0.3.2
+
+- Bars 100% vertical hover area
+- 10% minimum on modal bars
+- Add black background behind modal
+- Modal scrolling only content
+
 ## 0.3.1
 
 - Shorten commithash to short hash in detail modal
