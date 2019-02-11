@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 120px;
+  width: 100%;
   height: 5px;
   background-color: rgba(255,255,255,0.15);
 `;

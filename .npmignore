@@ -2,5 +2,6 @@ node_modules
 .DS_store
 tmp
 dist/history.jsonp
+dist/config.jsonp
 .sizemometer
 website/history.json
