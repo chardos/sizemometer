@@ -1,3 +1,10 @@
+## 0.4.0
+
+- Fix bug in detail modal
+- Update get-git-data to fix double quote issue
+- Modal Horizontal bar styling changes
+- Added date to modal
+
 ## 0.3.2
 
 - Bars 100% vertical hover area
