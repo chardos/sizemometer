@@ -7,9 +7,8 @@ export const BlackOverlay = styled.div`
   left: 0px;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.65);
   padding: 30px;
-  overflow: scroll;
 `;
 
 export const DetailModalWrapper = styled.div`
@@ -49,13 +48,13 @@ export const CloseButton = styled.div`
 `;
 
 export const ScrollArea = styled.div`
-  overflow: scroll;
+  overflow-y: scroll;
   height: calc(100% - 55px);
 `;
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 `;
 
 export const GridTitle = styled.div`
@@ -64,14 +63,14 @@ export const GridTitle = styled.div`
   letter-spacing: 4px;
   font-size: 12px;
   margin-bottom: 20px;
-  padding-left: 10px;
+  padding-left: 20px;
   color: rgba(255,255,255, 0.8);
 `;
 
 export const GridItem = styled.div`
   display: flex;
   align-items: center;
-  padding: 20px 10px 20px;
+  padding: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 14px;
   color: rgba(255,255,255, 0.65);

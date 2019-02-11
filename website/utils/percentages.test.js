@@ -1,4 +1,4 @@
-import { getPercentageFromRange, scaleMin } from './helpers';
+import { getPercentageFromRange, scaleMin } from './percentages';
 
 describe('getPercentageFromRange', () => {
   const testCases = [

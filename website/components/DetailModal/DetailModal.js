@@ -4,7 +4,7 @@ import filesize from 'filesize';
 import * as s from './styled';
 import HorizontalBar from './HorizontalBar';
 import { closeModal } from '../../ducks/detailModal';
-import { shortCommitHash, getPercentageFromRange } from '../../utils';
+import { shortCommitHash, getPercentageFromRange, getReadableDate } from '../../utils';
 
 const DetailModal = ({ detailModal, histories, closeModal }) => {
   if (!detailModal.isOpen) return null;
@@ -26,13 +26,14 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
         <s.ScrollArea>
           <s.Grid>
             <s.GridTitle>Author</s.GridTitle>
+            <s.GridTitle>Date</s.GridTitle>
             <s.GridTitle>Commit hash</s.GridTitle>
             <s.GridTitle>Commit message</s.GridTitle>
             <s.GridTitle>Size</s.GridTitle>
             <s.GridTitle />
 
             {reversedData.map(({
-              commitHash, author, commitMessage, size,
+              commitHash, author, commitMessage, size, timestamp,
             }) => {
               const percentage = getPercentageFromRange({
                 minValue,
@@ -48,6 +49,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
               return (
                 <React.Fragment key={commitHash}>
                   <GridItem>{author}</GridItem>
+                  <GridItem>{getReadableDate(timestamp)}</GridItem>
                   <GridItem>{shortCommitHash(commitHash)}</GridItem>
                   <GridItem>{commitMessage}</GridItem>
                   <GridItem>{filesize(size)}</GridItem>
