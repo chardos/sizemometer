@@ -11,8 +11,6 @@ const BarChart = ({
 }) => {
   const { bars, maxValue, minValue } = prepareData(data, panelWidth);
 
-  console.log('bars', bars);
-
   return (
     <div>
       <Graph width={width} height={height}>

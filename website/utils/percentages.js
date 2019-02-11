@@ -13,7 +13,7 @@ export function getPercentageFromRange({
   if (range === 0) {
     return 50;
   }
-  
+
   const adjustedValue = currentValue - minValue;
   const percentage = adjustedValue / range * 100;
   return scaleMin({ percentage, minimum: offsetBottom });

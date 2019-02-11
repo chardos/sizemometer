@@ -9,7 +9,6 @@ export const BlackOverlay = styled.div`
   width: 100%;
   background-color: rgba(0,0,0,0.65);
   padding: 30px;
-  overflow: scroll;
 `;
 
 export const DetailModalWrapper = styled.div`
@@ -49,13 +48,13 @@ export const CloseButton = styled.div`
 `;
 
 export const ScrollArea = styled.div`
-  overflow: scroll;
+  overflow-y: scroll;
   height: calc(100% - 55px);
 `;
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 `;
 
 export const GridTitle = styled.div`
