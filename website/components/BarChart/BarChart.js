@@ -2,12 +2,16 @@ import React from 'react';
 import { Graph } from './styled';
 import Bar from './Bar/Bar';
 import Tooltip from './Tooltip/Tooltip';
-import { prepareData, getPercentageFromRange } from './helpers';
+import { prepareData } from './helpers';
+import { getPercentageFromRange } from '../../utils';
+
 
 const BarChart = ({
   data, width, height, tooltipTemplate, panelWidth, onBarClick, filename,
 }) => {
   const { bars, maxValue, minValue } = prepareData(data, panelWidth);
+
+  console.log('bars', bars);
 
   return (
     <div>

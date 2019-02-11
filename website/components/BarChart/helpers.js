@@ -42,6 +42,7 @@ export function getPercentageFromRange({
   minValue, maxValue, currentValue, offsetBottom = 0,
 }) {
   const range = maxValue - minValue;
+  console.log('range', range);
 
   // if there is only 1 value, range is 0, which will bring
   // the calculation. Just return 50% if theres only 1 value.

@@ -8,7 +8,7 @@ const BarInner = styled.div`
   width: 10px;
   background-color: #6D8294;
   height: ${props => props.height};
-  transition: 0.2s all;
+  transition: 0.2s background-color;
 `;
 
 const BarWrapper = styled.div`
