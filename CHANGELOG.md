@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Exposed `add` command in Node API.
+
 ## 0.4.0
 
 - Fix bug in detail modal
