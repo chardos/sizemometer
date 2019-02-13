@@ -20,8 +20,9 @@ module.exports = async ({
     const filesWithSizes = await addFileSizes(trackedFiles);
     const filesWithGitData = await injectedAddGitData(filesWithSizes);
     const updatedHistory = await updateHistoryJson(currentHistory, filesWithGitData);
-    
-    return updatedHistory;
+    const historyJsonP = buildHistoryJsonP(updatedHistory);
+
+    return historyJsonP;
   } catch (e) {
     console.log(e);
   }

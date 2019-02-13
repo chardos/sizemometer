@@ -5,7 +5,7 @@ const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
-const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
+const buildAndWriteHistoryJsonP = require('../pipelines/add/buildAndWriteHistoryJsonP');
 const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const getTrackedFiles = require('../pipelines/add/getTrackedFiles');
 const getPaths = require('../utils/getPaths');
@@ -22,6 +22,6 @@ module.exports = async (
   const historyJson = await getHistoryJson(paths);
   const updatedHistory = await updateHistoryJson(historyJson, filesWithGitData);
   await fs.writeFile(paths.history, JSON.stringify(updatedHistory, null, 2));
-  await buildHistoryJsonP(paths);
+  await buildAndWriteHistoryJsonP(paths);
   await buildConfigJsonP(paths);
 };
