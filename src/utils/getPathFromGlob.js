@@ -14,7 +14,10 @@ function throwErrorsIfNeeded(globbedPaths, shortPath) {
 }
 
 module.exports = async function getPathFromGlob(file) {
+  // eslint-disable-next-line
+  console.log(`Finding path for ${file.fullPath}`);
   const globbedPaths = await globPromise(file.fullPath);
+
   throwErrorsIfNeeded(globbedPaths, file.shortPath);
   return globbedPaths[0];
 };

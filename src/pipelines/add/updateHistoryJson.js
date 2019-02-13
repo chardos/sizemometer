@@ -1,7 +1,6 @@
 const cloneDeep = require('lodash.clonedeep');
-const fs = require('fs-extra');
 
-module.exports = async (paths, historyJson, trackedFiles) => {
+module.exports = async (historyJson, trackedFiles) => {
   const outputJson = cloneDeep(historyJson);
 
   trackedFiles.forEach((file) => {
@@ -36,5 +35,5 @@ module.exports = async (paths, historyJson, trackedFiles) => {
     }
   });
 
-  await fs.writeFile(paths.history, JSON.stringify(outputJson, null, 2));
+  return outputJson;
 };
