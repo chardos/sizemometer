@@ -1,4 +1,5 @@
 require('babel-polyfill');
+const fs = require('fs-extra');
 const validateConfig = require('../pipelines/add/validateConfig');
 const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
@@ -19,7 +20,8 @@ module.exports = async (
   const filesWithSizes = await addFileSizes(trackedFiles);
   const filesWithGitData = await injectedAddGitData(filesWithSizes);
   const historyJson = await getHistoryJson(paths);
-  await updateHistoryJson(paths, historyJson, filesWithGitData);
+  const updatedHistory = await updateHistoryJson(historyJson, filesWithGitData);
+  await fs.writeFile(paths.history, JSON.stringify(updatedHistory, null, 2));
   await buildHistoryJsonP(paths);
   await buildConfigJsonP(paths);
 };
