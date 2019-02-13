@@ -1,7 +1,7 @@
 {
   "name": "sizemometer",
   "description": "A library for monitoring your bundle sizes",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "bin": {
     "sizemometer": "bin/main"
   },
@@ -17,6 +17,7 @@
     "type": "git",
     "url": "https://github.com/chardos/sizemometer.git"
   },
+  "main": "src/api/index.js",
   "dependencies": {
     "babel-loader": "7.1.5",
     "babel-polyfill": "6.26.0",
