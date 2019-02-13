@@ -1,5 +1,4 @@
 const cloneDeep = require('lodash.clonedeep');
-const fs = require('fs-extra');
 
 module.exports = async (historyJson, trackedFiles) => {
   const outputJson = cloneDeep(historyJson);
@@ -36,5 +35,5 @@ module.exports = async (historyJson, trackedFiles) => {
     }
   });
 
-  return outputJson
+  return outputJson;
 };

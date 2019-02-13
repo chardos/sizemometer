@@ -13,6 +13,7 @@ module.exports = {
     'global-require': 'off',
     'no-shadow': 'off',
     'arrow-body-style': 'off',
+    'consistent-return': 'off',
   },
   env: {
     'browser': true,

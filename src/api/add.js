@@ -4,7 +4,7 @@ const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
 const buildHistoryJsonP = require('../pipelines/add/buildHistoryJsonP');
-const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
+// const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
 const getTrackedFiles = require('../pipelines/add/getTrackedFiles');
 const getPaths = require('../utils/getPaths');
 
@@ -24,6 +24,7 @@ module.exports = async ({
 
     return historyJsonP;
   } catch (e) {
+    // eslint-disable-next-line
     console.log(e);
   }
 };
