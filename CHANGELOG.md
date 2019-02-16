@@ -1,3 +1,7 @@
+## 0.6.0
+
+- Exposed `getFilePaths` function in Node API.
+
 ## 0.5.0
 
 - Exposed `add` command in Node API.
