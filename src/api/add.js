@@ -12,13 +12,15 @@ module.exports = async ({
   scopedPath, // path scoping for tests
   currentHistory,
 }) => {
+  const safeHistory = currentHistory || {};
+
   try {
     const paths = getPaths(scopedPath);
     validateConfig(paths);
     const trackedFiles = await getTrackedFiles(paths, scopedPath);
     const filesWithSizes = await addFileSizes(trackedFiles);
     const filesWithGitData = await injectedAddGitData(filesWithSizes);
-    const updatedHistory = await updateHistoryJson(currentHistory, filesWithGitData);
+    const updatedHistory = await updateHistoryJson(safeHistory, filesWithGitData);
     const historyJsonP = buildHistoryJsonP(updatedHistory);
 
     return historyJsonP;

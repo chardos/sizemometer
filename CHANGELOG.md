@@ -1,3 +1,7 @@
+## 0.7.0
+
+- Support use case where no history exists in S3.
+
 ## 0.6.0
 
 - Exposed `getFilePaths` function in Node API.
