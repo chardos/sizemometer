@@ -30,10 +30,11 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
             <s.GridTitle>Commit hash</s.GridTitle>
             <s.GridTitle>Commit message</s.GridTitle>
             <s.GridTitle>Size</s.GridTitle>
+            <s.GridTitle>Gzip Size</s.GridTitle>
             <s.GridTitle />
 
             {reversedData.map(({
-              commitHash, author, commitMessage, size, timestamp,
+              commitHash, author, commitMessage, size, gzippedSize, timestamp,
             }) => {
               const percentage = getPercentageFromRange({
                 minValue,
@@ -41,6 +42,8 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
                 currentValue: size,
                 offsetBottom: 10,
               });
+
+              const safeGzippedSize = gzippedSize ? filesize(gzippedSize) : '';
 
               const GridItem = commitHash === detailModal.commitHash
                 ? s.HighlightedGridItem
@@ -53,6 +56,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
                   <GridItem>{shortCommitHash(commitHash)}</GridItem>
                   <GridItem>{commitMessage}</GridItem>
                   <GridItem>{filesize(size)}</GridItem>
+                  <GridItem>{safeGzippedSize}</GridItem>
                   <GridItem><HorizontalBar percentage={percentage} /></GridItem>
                 </React.Fragment>
               );

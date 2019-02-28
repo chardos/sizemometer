@@ -7,7 +7,8 @@ exports[`Command: Add when there is no existing history.json it should create a 
       \\"author\\": \\"Richard Tan\\",
       \\"commitHash\\": \\"7c89a73bce5161c84b1a34130f4f902cca2d5f83\\",
       \\"commitMessage\\": \\"Second commit\\",
-      \\"size\\": 80
+      \\"size\\": 80,
+      \\"gzippedSize\\": 77
     }
   ]
 }"

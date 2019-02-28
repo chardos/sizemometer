@@ -41,4 +41,10 @@ Then to view the report:
 npx sizemometer report
 ```
 
+## API
 
+```
+import { add } from 'sizemometer';
+
+await add({currentHistory});
+```
