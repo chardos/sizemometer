@@ -1,3 +1,7 @@
+## 0.7.2
+
+- Use max and min of current set of bars
+
 ## 0.7.1
 
 - Add gzipped file size
