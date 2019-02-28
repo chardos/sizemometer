@@ -12,11 +12,11 @@ export const BlackOverlay = styled.div`
 `;
 
 export const DetailModalWrapper = styled.div`
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 1000px;
-  height: 100%;
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  bottom: 10%;
+  right: 10%;
   background-color: #1A262F;
   padding: 30px;
 `;
