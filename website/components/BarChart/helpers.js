@@ -1,4 +1,4 @@
-import { takeLast, pipe } from 'ramda';
+import { takeLast } from 'ramda';
 
 function addEmptyBars(numBars) {
   return (bars) => {
@@ -12,23 +12,27 @@ function addEmptyBars(numBars) {
   };
 }
 
-
+/**
+ * prepareData -
+ * takes the data and shortens to desired amount of bars depending on
+ * screen width. Also returns a min anx max value;
+ */
 export const prepareData = (data, panelWidth) => {
-  const maxValue = data.reduce((acc, curr) => ((acc > curr.size) ? acc : curr.size), 0);
-
-  const minValue = data.reduce((acc, curr) => ((acc < curr.size) ? acc : curr.size), data[0].size);
-
   const PADDING = 40;
   const numBars = Math.floor((panelWidth - PADDING) / 60);
 
-  const preparedBars = pipe(
-    takeLast(numBars),
-    addEmptyBars(numBars),
-  )(data);
+  const trimmedBars = takeLast(numBars, data);
+  const barsWithEmpties = addEmptyBars(numBars)(trimmedBars);
+
+  const maxValue = trimmedBars.reduce((acc, curr) => ((acc > curr.size) ? acc : curr.size), 0);
+  const minValue = trimmedBars.reduce(
+    (acc, curr) => ((acc < curr.size) ? acc : curr.size),
+    trimmedBars[0].size,
+  );
 
   return {
     maxValue,
     minValue,
-    bars: preparedBars,
+    bars: barsWithEmpties,
   };
 };
