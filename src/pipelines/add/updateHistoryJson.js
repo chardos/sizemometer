@@ -5,7 +5,7 @@ module.exports = async (historyJson, trackedFiles) => {
 
   trackedFiles.forEach((file) => {
     const {
-      commitHash, commitMessage, timestamp, author, size, shortPath,
+      commitHash, commitMessage, timestamp, author, size, gzippedSize, shortPath,
     } = file;
 
     const keyExists = Boolean(outputJson[shortPath]);
@@ -25,6 +25,7 @@ module.exports = async (historyJson, trackedFiles) => {
         commitHash,
         commitMessage,
         size,
+        gzippedSize,
         timestamp,
       });
       // eslint-disable-next-line
