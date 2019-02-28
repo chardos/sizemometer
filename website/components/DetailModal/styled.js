@@ -54,7 +54,7 @@ export const ScrollArea = styled.div`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
 `;
 
 export const GridTitle = styled.div`
