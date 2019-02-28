@@ -18,7 +18,8 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
   const reversedData = [...history.data].reverse();
 
   return (
-    <s.BlackOverlay onClick={closeModal}>
+    <React.Fragment>
+      <s.BlackOverlay onClick={closeModal} />
       <s.DetailModalWrapper>
         <s.Title>{history.filename}</s.Title>
         <s.CloseButton onClick={closeModal}>X</s.CloseButton>
@@ -64,7 +65,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
           </s.Grid>
         </s.ScrollArea>
       </s.DetailModalWrapper>
-    </s.BlackOverlay>
+    </React.Fragment>
   );
 };
 

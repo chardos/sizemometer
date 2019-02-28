@@ -1,3 +1,8 @@
+## 0.7.1
+
+- Add gzipped file size
+- Fix bug where modal was closing when content area was clicked
+
 ## 0.7.0
 
 - Support use case where no history exists in S3.
