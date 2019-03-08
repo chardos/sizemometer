@@ -15,17 +15,23 @@ npm install -S sizemometer
 
 Set up a config file at `.sizemometer/config.js` in the root of your project.
 
-```
+```js
 module.exports = {
   title: 'Your project name',
   trackedFiles: ['dist/bundle.js', 'main-*.js'],
+  commitIgnorePattern: "Update dependency",
   theme: {
     accentColor: '#BADA55'
   }
 }
 ```
 
-`trackedFiles` is an array of the trackedFiles which will be monitored.
+| Property            | Description                                                                 | Types         |
+|---------------------|-----------------------------------------------------------------------------|---------------|
+| title               | Displayed in app header                                                     | string        |
+| trackedFiles        | Files to take snapshots of. Supports globbing.                              | array         |
+| commitIgnorePattern | When this matches your latest commit message, no new snapshot will be taken | string, regex |
+| theme.accentColor   | Changes the color of the bars                                               | string        |
 
 ## Using sizemometer
 
@@ -48,3 +54,4 @@ import { add } from 'sizemometer';
 
 await add({currentHistory});
 ```
+
