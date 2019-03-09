@@ -15,12 +15,13 @@ module.exports = async (
   scopedPath, // path scoping for tests
 ) => {
   const paths = getPaths(scopedPath);
+  const config = require(paths.config);
   validateConfig(paths);
   const trackedFiles = await getTrackedFiles(paths, scopedPath);
   const filesWithSizes = await addFileSizes(trackedFiles);
   const filesWithGitData = await injectedAddGitData(filesWithSizes);
   const historyJson = await getHistoryJson(paths);
-  const updatedHistory = await updateHistoryJson(historyJson, filesWithGitData);
+  const updatedHistory = await updateHistoryJson(historyJson, filesWithGitData, config.commitIgnorePattern);
   await fs.writeFile(paths.history, JSON.stringify(updatedHistory, null, 2));
   await buildAndWriteHistoryJsonP(paths);
   await buildConfigJsonP(paths);

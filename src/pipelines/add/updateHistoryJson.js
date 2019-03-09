@@ -1,6 +1,7 @@
 const cloneDeep = require('lodash.clonedeep');
+const checkCommitIsIgnored = require('./checkCommitIsIgnored.js')
 
-module.exports = async (historyJson, trackedFiles) => {
+module.exports = async (historyJson, trackedFiles, commitIgnorePattern) => {
   const outputJson = cloneDeep(historyJson);
 
   trackedFiles.forEach((file) => {
@@ -18,6 +19,11 @@ module.exports = async (historyJson, trackedFiles) => {
     const lastHistoryEntry = currentHistory && currentHistory[currentHistory.length - 1];
     const lastCommitHash = lastHistoryEntry && lastHistoryEntry.commitHash;
     const isNewHash = (commitHash !== lastCommitHash);
+    const isCommitIgnored = checkCommitIsIgnored(commitMessage, commitIgnorePattern);
+
+    if (isCommitIgnored) {
+      throw new Error(`The current commit is ignored due to config.commitIgnorePattern: ${commitIgnorePattern}`)
+    }
 
     if (isNewHash) {
       outputJson[shortPath].push({
