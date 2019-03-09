@@ -1,3 +1,7 @@
+## 0.7.3
+
+- Ignore commits matching commitIgnorePattern
+
 ## 0.7.2
 
 - Use max and min of current set of bars
