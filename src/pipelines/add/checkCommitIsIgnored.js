@@ -5,11 +5,15 @@
 
 module.exports = (commitMessage, commitIgnorePattern) => {
   if (commitIgnorePattern instanceof RegExp) {
-    return commitIgnorePattern.test(commitMessage)
+    return commitIgnorePattern.test(commitMessage);
   }
 
   if (typeof commitIgnorePattern === 'string') {
     return commitMessage.indexOf(commitIgnorePattern) >= 0;
+  }
+
+  if (!commitIgnorePattern) {
+    return false;
   }
 
   throw new Error('Please make sure your `commitIgnorePattern` is either a string or RegExp');

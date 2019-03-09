@@ -16,12 +16,16 @@ module.exports = async ({
 
   try {
     const paths = getPaths(scopedPath);
-    const config = require(paths.config);
     validateConfig(paths);
+    const config = require(paths.config);
     const trackedFiles = await getTrackedFiles(paths, scopedPath);
     const filesWithSizes = await addFileSizes(trackedFiles);
     const filesWithGitData = await injectedAddGitData(filesWithSizes);
-    const updatedHistory = await updateHistoryJson(safeHistory, filesWithGitData, config.commitIgnorePattern);
+    const updatedHistory = await updateHistoryJson(
+      safeHistory,
+      filesWithGitData,
+      config.commitIgnorePattern,
+    );
     const historyJsonP = buildHistoryJsonP(updatedHistory);
 
     return historyJsonP;
