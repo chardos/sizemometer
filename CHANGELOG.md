@@ -1,6 +1,6 @@
 ## 0.7.3
 
-- Ignore commits matching commitIgnorePattern
+- Ignore commits matching `commitIgnorePattern`
 
 ## 0.7.2
 

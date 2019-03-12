@@ -1,14 +1,12 @@
 require('babel-polyfill');
 const fs = require('fs-extra');
 const validateConfig = require('../pipelines/add/validateConfig');
-const addFileSizes = require('../pipelines/add/addFileSizes');
 const addGitData = require('../pipelines/add/addGitData');
 const getHistoryJson = require('../pipelines/add/getHistoryJson');
-const updateHistoryJson = require('../pipelines/add/updateHistoryJson');
 const buildAndWriteHistoryJsonP = require('../pipelines/add/buildAndWriteHistoryJsonP');
 const buildConfigJsonP = require('../pipelines/add/buildConfigJsonP');
-const getTrackedFiles = require('../pipelines/add/getTrackedFiles');
 const getPaths = require('../utils/getPaths');
+const add = require('../api/add');
 
 module.exports = async (
   injectedAddGitData = addGitData,
@@ -16,18 +14,16 @@ module.exports = async (
 ) => {
   const paths = getPaths(scopedPath);
   validateConfig(paths);
-  const config = require(paths.config);
-  const trackedFiles = await getTrackedFiles(paths, scopedPath);
-  const filesWithSizes = await addFileSizes(trackedFiles);
-  const filesWithGitData = await injectedAddGitData(filesWithSizes);
-  const historyJson = await getHistoryJson(paths);
-  const updatedHistory = await updateHistoryJson(
-    historyJson,
-    filesWithGitData,
-    config.commitIgnorePattern,
-  );
+  const currentHistory = await getHistoryJson(paths);
+  const updatedHistoryJsonP = await add({
+    injectedAddGitData,
+    scopedPath,
+    currentHistory,
+  });
 
-  await fs.writeFile(paths.history, JSON.stringify(updatedHistory, null, 2));
+  const updatedHistoryJson = updatedHistoryJsonP.replace('window.snapshot = ', '');
+
+  await fs.writeFile(paths.history, updatedHistoryJson);
   await buildAndWriteHistoryJsonP(paths);
   await buildConfigJsonP(paths);
 };
