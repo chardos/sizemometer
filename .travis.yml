@@ -8,3 +8,7 @@ jobs:
       script: "npm run lint"
     - name: "Tests"
       script: "npm run test"
+    - stage: "Release"
+      name: "Semantic release"
+      script: "npm run release"
+      if: branch = master
