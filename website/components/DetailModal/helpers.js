@@ -1,16 +1,8 @@
 import React from 'react';
+import get from 'lodash.get';
 
-export const addUrl = (commitMessage) => {
-  const url = config.repositoryUrl;
-
-  if (url) {
-    const isGithub = /github.com/.test(url);
-    if (isGithub) {
-      return parseGithubUrl(url, commitMessage);
-    }
-  }
-
-  return commitMessage;
+function wrapWithAnchor(url, commitMessage) {
+  return <a href={url} target="_blank" rel="noopener noreferrer">{commitMessage}</a>;
 }
 
 /**
@@ -30,6 +22,15 @@ function parseGithubUrl(url, commitMessage) {
   return commitMessage;
 }
 
-function wrapWithAnchor(url, commitMessage) {
-  return <a href={url} target="_blank">{commitMessage}</a>
-}
+export const addUrl = (commitMessage) => {
+  const url = get(window, 'config.repositoryUrl');
+
+  if (url) {
+    const isGithub = /github.com/.test(url);
+    if (isGithub) {
+      return parseGithubUrl(url, commitMessage);
+    }
+  }
+
+  return commitMessage;
+};
