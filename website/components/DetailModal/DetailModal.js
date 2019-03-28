@@ -5,6 +5,7 @@ import * as s from './styled';
 import HorizontalBar from './HorizontalBar';
 import { closeModal } from '../../ducks/detailModal';
 import { shortCommitHash, getPercentageFromRange, getReadableDate } from '../../utils';
+import { addUrl } from './helpers';
 
 const DetailModal = ({ detailModal, histories, closeModal }) => {
   if (!detailModal.isOpen) return null;
@@ -55,7 +56,7 @@ const DetailModal = ({ detailModal, histories, closeModal }) => {
                   <GridItem>{author}</GridItem>
                   <GridItem>{getReadableDate(timestamp)}</GridItem>
                   <GridItem>{shortCommitHash(commitHash)}</GridItem>
-                  <GridItem>{commitMessage}</GridItem>
+                  <GridItem>{addUrl(commitMessage)}</GridItem>
                   <GridItem>{filesize(size)}</GridItem>
                   <GridItem>{safeGzippedSize}</GridItem>
                   <GridItem><HorizontalBar percentage={percentage} /></GridItem>
