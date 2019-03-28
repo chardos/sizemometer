@@ -19,10 +19,11 @@ Set up a config file at `.sizemometer/config.js` in the root of your project.
 module.exports = {
   title: 'Your project name',
   trackedFiles: ['dist/bundle.js', 'main-*.js'],
-  commitIgnorePattern: "Update dependency",
+  commitIgnorePattern: 'Update dependency',
   theme: {
     accentColor: '#BADA55'
-  }
+  },
+  repositoryUrl: 'https://github.com/chardos/sizemometer'
 }
 ```
 
