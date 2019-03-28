@@ -74,6 +74,10 @@ export const GridItem = styled.div`
   border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 14px;
   color: rgba(255,255,255, 0.65);
+
+  a {
+    color: rgba(255,255,255, 0.65);
+  }
 `;
 
 export const HighlightedGridItem = styled(GridItem)`
