@@ -27,7 +27,7 @@ module.exports = async ({
       config.commitIgnorePattern,
     );
     const historyJsonP = buildHistoryJsonP(updatedHistory);
-
+    // TODO: Return historyJson instead? Consumers can convert to jsonp
     return historyJsonP;
   } catch (e) {
     // eslint-disable-next-line

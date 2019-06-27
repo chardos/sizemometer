@@ -10,14 +10,6 @@ const build = async () => {
   );
   
   await copyFilesFromSizemometerReport()
-
-  // const config = require('../../website/webpack.config');
-  // const compiler = webpack(config);
-  
-  // await compiler.run((err, stats) => {
-  //   const compileErrors = stats.compilation.errors;
-  //   console.log('compileErrors', compileErrors);
-  // });
 }
 
 build();
