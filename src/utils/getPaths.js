@@ -13,13 +13,14 @@ function getPaths(scopePath) {
   return {
     root: appRoot,
     sizemometerRoot,
+    dist: `${appRoot}/dist`,
     dotDirectory: `${appRoot}/.sizemometer`,
     config: `${appRoot}/.sizemometer/config.js`,
     bundle: `${sizemometerRoot}/dist/bundle.js`,
     index: `${sizemometerRoot}/dist/index.html`,
-    configJsonp: `${sizemometerRoot}/dist/config.jsonp`,
+    configJsonp: `${sizemometerRoot}/dist/assets/config.jsonp`,
     history: `${appRoot}/.sizemometer/history.json`,
-    historyJsonp: `${sizemometerRoot}/dist/history.jsonp`,
+    historyJsonp: `${sizemometerRoot}/dist/assets/history.jsonp`,
   };
 }
 
