@@ -1,6 +1,7 @@
 ## Build step (`yarn build`):
 
 - Copies over `index.html` and `bundle.js` into dist from `sizemometer-report`.
+- `dist/index.html` and `dist/bundle.js` , whereas `dist/history.jsonp` and `dist/config.jsonp` are ignored.
 
 ## sizemometer report
 
