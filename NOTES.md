@@ -1,4 +1,3 @@
-Build step:
+Build step (`yarn build`):
 
-- Copies over the history.json into node_modules
-- Compiles it into the bundle.
+- Copies over `index.html` and `bundle.js` into dist from `sizemometer-report`.
