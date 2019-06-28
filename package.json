@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "tsc --watch",
-    "build": "node scripts/build",
+    "build": "node scripts/copy-static-files",
     "test": "ENV=test jest",
     "lint": "eslint 'src/**/*.js' 'website/**/*.js' --ignore-pattern '*.test.js'",
     "lint:fix": "eslint 'src/**/*.js' 'website/**/*.js' --fix --ignore-pattern '*.test.js'",

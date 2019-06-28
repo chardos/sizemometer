@@ -15,5 +15,3 @@
 - `/src`
   - `/api` - Functions to be imported. Currently being consumed by sizemometer-s3-deploy
   - `/commands` - Corresponds to the sizemometer cli commands, e.g. `sizemometer add`
-  
-

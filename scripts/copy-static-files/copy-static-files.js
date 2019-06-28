@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const { copyFilesFromSizemometerReport } = require('./helpers');
 const makeDir = require('make-dir');
 const findUp = require('find-up');

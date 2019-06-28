@@ -1,5 +1,4 @@
 const fs = require('fs-extra');
-const makeDir = require('make-dir');
 const getPaths = require('../../src/utils/getPaths');
 
 // Copy the index.html and bundle.js from sizemometer-report package over to /dist
